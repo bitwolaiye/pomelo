@@ -15,6 +15,7 @@
 		DAEF0C781C3BAB81009E52FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C761C3BAB81009E52FF /* LaunchScreen.storyboard */; };
 		DAEF0C831C3BAB81009E52FF /* pomeloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C821C3BAB81009E52FF /* pomeloTests.swift */; };
 		DAEF0C8E1C3BAB81009E52FF /* pomeloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C8D1C3BAB81009E52FF /* pomeloUITests.swift */; };
+		E0C253DC04764736D19B93D2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79377143674F87C3310F5498 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0163545DB485CEE264CD683F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		79377143674F87C3310F5498 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEF0C681C3BAB81009E52FF /* pomelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pomelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAEF0C6D1C3BAB81009E52FF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		DAEF0C891C3BAB81009E52FF /* pomeloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pomeloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEF0C8D1C3BAB81009E52FF /* pomeloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pomeloUITests.swift; sourceTree = "<group>"; };
 		DAEF0C8F1C3BAB81009E52FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC63D56D41C7945DB2604361 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C253DC04764736D19B93D2 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA662BCC1C3BC595001D2855 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		DA662BCD1C3BC5A1001D2855 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		DA662BCE1C3BC5AE001D2855 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		DA662BCF1C3BC7A2001D2855 /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Apis;
+			sourceTree = "<group>";
+		};
 		DAEF0C5F1C3BAB81009E52FF = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +116,8 @@
 				DAEF0C811C3BAB81009E52FF /* pomeloTests */,
 				DAEF0C8C1C3BAB81009E52FF /* pomeloUITests */,
 				DAEF0C691C3BAB81009E52FF /* Products */,
+				E446E3DE7DDD00CA3E39412C /* Pods */,
+				E5654EF7856D8B239DD1ECA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +134,10 @@
 		DAEF0C6A1C3BAB81009E52FF /* pomelo */ = {
 			isa = PBXGroup;
 			children = (
+				DA662BCF1C3BC7A2001D2855 /* Apis */,
+				DA662BCE1C3BC5AE001D2855 /* Cells */,
+				DA662BCD1C3BC5A1001D2855 /* Controllers */,
+				DA662BCC1C3BC595001D2855 /* Models */,
 				DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */,
 				DAEF0C6D1C3BAB81009E52FF /* FirstViewController.swift */,
 				DAEF0C6F1C3BAB81009E52FF /* SecondViewController.swift */,
@@ -128,6 +167,23 @@
 			path = pomeloUITests;
 			sourceTree = "<group>";
 		};
+		E446E3DE7DDD00CA3E39412C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC63D56D41C7945DB2604361 /* Pods.debug.xcconfig */,
+				0163545DB485CEE264CD683F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E5654EF7856D8B239DD1ECA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79377143674F87C3310F5498 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAEF0C921C3BAB81009E52FF /* Build configuration list for PBXNativeTarget "pomelo" */;
 			buildPhases = (
+				21C42F31A817BD639FEB508E /* Check Pods Manifest.lock */,
 				DAEF0C641C3BAB81009E52FF /* Sources */,
 				DAEF0C651C3BAB81009E52FF /* Frameworks */,
 				DAEF0C661C3BAB81009E52FF /* Resources */,
+				21E01B23C96DA9645D26C01A /* Embed Pods Frameworks */,
+				25350BD5DC587A0F00CD7CB1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +312,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21C42F31A817BD639FEB508E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		21E01B23C96DA9645D26C01A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25350BD5DC587A0F00CD7CB1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DAEF0C641C3BAB81009E52FF /* Sources */ = {
@@ -399,6 +506,7 @@
 		};
 		DAEF0C931C3BAB81009E52FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC63D56D41C7945DB2604361 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = pomelo/Info.plist;
@@ -410,6 +518,7 @@
 		};
 		DAEF0C941C3BAB81009E52FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0163545DB485CEE264CD683F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = pomelo/Info.plist;
@@ -486,6 +595,7 @@
 				DAEF0C941C3BAB81009E52FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAEF0C951C3BAB81009E52FF /* Build configuration list for PBXNativeTarget "pomeloTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +604,7 @@
 				DAEF0C971C3BAB81009E52FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAEF0C981C3BAB81009E52FF /* Build configuration list for PBXNativeTarget "pomeloUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +613,7 @@
 				DAEF0C9A1C3BAB81009E52FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
