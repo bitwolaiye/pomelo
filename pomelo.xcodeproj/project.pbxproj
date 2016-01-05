@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DAEF0C6C1C3BAB81009E52FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */; };
+		DAEF0C6E1C3BAB81009E52FF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C6D1C3BAB81009E52FF /* FirstViewController.swift */; };
+		DAEF0C701C3BAB81009E52FF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C6F1C3BAB81009E52FF /* SecondViewController.swift */; };
+		DAEF0C731C3BAB81009E52FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C711C3BAB81009E52FF /* Main.storyboard */; };
+		DAEF0C751C3BAB81009E52FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C741C3BAB81009E52FF /* Assets.xcassets */; };
+		DAEF0C781C3BAB81009E52FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C761C3BAB81009E52FF /* LaunchScreen.storyboard */; };
+		DAEF0C831C3BAB81009E52FF /* pomeloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C821C3BAB81009E52FF /* pomeloTests.swift */; };
+		DAEF0C8E1C3BAB81009E52FF /* pomeloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C8D1C3BAB81009E52FF /* pomeloUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAEF0C7F1C3BAB81009E52FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEF0C601C3BAB81009E52FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAEF0C671C3BAB81009E52FF;
+			remoteInfo = pomelo;
+		};
+		DAEF0C8A1C3BAB81009E52FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEF0C601C3BAB81009E52FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAEF0C671C3BAB81009E52FF;
+			remoteInfo = pomelo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DAEF0C681C3BAB81009E52FF /* pomelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pomelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DAEF0C6D1C3BAB81009E52FF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		DAEF0C6F1C3BAB81009E52FF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DAEF0C721C3BAB81009E52FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DAEF0C741C3BAB81009E52FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DAEF0C771C3BAB81009E52FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DAEF0C791C3BAB81009E52FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAEF0C7E1C3BAB81009E52FF /* pomeloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pomeloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAEF0C821C3BAB81009E52FF /* pomeloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pomeloTests.swift; sourceTree = "<group>"; };
+		DAEF0C841C3BAB81009E52FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAEF0C891C3BAB81009E52FF /* pomeloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pomeloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAEF0C8D1C3BAB81009E52FF /* pomeloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pomeloUITests.swift; sourceTree = "<group>"; };
+		DAEF0C8F1C3BAB81009E52FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAEF0C651C3BAB81009E52FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAEF0C7B1C3BAB81009E52FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAEF0C861C3BAB81009E52FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DAEF0C5F1C3BAB81009E52FF = {
+			isa = PBXGroup;
+			children = (
+				DAEF0C6A1C3BAB81009E52FF /* pomelo */,
+				DAEF0C811C3BAB81009E52FF /* pomeloTests */,
+				DAEF0C8C1C3BAB81009E52FF /* pomeloUITests */,
+				DAEF0C691C3BAB81009E52FF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAEF0C691C3BAB81009E52FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAEF0C681C3BAB81009E52FF /* pomelo.app */,
+				DAEF0C7E1C3BAB81009E52FF /* pomeloTests.xctest */,
+				DAEF0C891C3BAB81009E52FF /* pomeloUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAEF0C6A1C3BAB81009E52FF /* pomelo */ = {
+			isa = PBXGroup;
+			children = (
+				DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */,
+				DAEF0C6D1C3BAB81009E52FF /* FirstViewController.swift */,
+				DAEF0C6F1C3BAB81009E52FF /* SecondViewController.swift */,
+				DAEF0C711C3BAB81009E52FF /* Main.storyboard */,
+				DAEF0C741C3BAB81009E52FF /* Assets.xcassets */,
+				DAEF0C761C3BAB81009E52FF /* LaunchScreen.storyboard */,
+				DAEF0C791C3BAB81009E52FF /* Info.plist */,
+			);
+			path = pomelo;
+			sourceTree = "<group>";
+		};
+		DAEF0C811C3BAB81009E52FF /* pomeloTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAEF0C821C3BAB81009E52FF /* pomeloTests.swift */,
+				DAEF0C841C3BAB81009E52FF /* Info.plist */,
+			);
+			path = pomeloTests;
+			sourceTree = "<group>";
+		};
+		DAEF0C8C1C3BAB81009E52FF /* pomeloUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DAEF0C8D1C3BAB81009E52FF /* pomeloUITests.swift */,
+				DAEF0C8F1C3BAB81009E52FF /* Info.plist */,
+			);
+			path = pomeloUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAEF0C671C3BAB81009E52FF /* pomelo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAEF0C921C3BAB81009E52FF /* Build configuration list for PBXNativeTarget "pomelo" */;
+			buildPhases = (
+				DAEF0C641C3BAB81009E52FF /* Sources */,
+				DAEF0C651C3BAB81009E52FF /* Frameworks */,
+				DAEF0C661C3BAB81009E52FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pomelo;
+			productName = pomelo;
+			productReference = DAEF0C681C3BAB81009E52FF /* pomelo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DAEF0C7D1C3BAB81009E52FF /* pomeloTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAEF0C951C3BAB81009E52FF /* Build configuration list for PBXNativeTarget "pomeloTests" */;
+			buildPhases = (
+				DAEF0C7A1C3BAB81009E52FF /* Sources */,
+				DAEF0C7B1C3BAB81009E52FF /* Frameworks */,
+				DAEF0C7C1C3BAB81009E52FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAEF0C801C3BAB81009E52FF /* PBXTargetDependency */,
+			);
+			name = pomeloTests;
+			productName = pomeloTests;
+			productReference = DAEF0C7E1C3BAB81009E52FF /* pomeloTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DAEF0C881C3BAB81009E52FF /* pomeloUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAEF0C981C3BAB81009E52FF /* Build configuration list for PBXNativeTarget "pomeloUITests" */;
+			buildPhases = (
+				DAEF0C851C3BAB81009E52FF /* Sources */,
+				DAEF0C861C3BAB81009E52FF /* Frameworks */,
+				DAEF0C871C3BAB81009E52FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAEF0C8B1C3BAB81009E52FF /* PBXTargetDependency */,
+			);
+			name = pomeloUITests;
+			productName = pomeloUITests;
+			productReference = DAEF0C891C3BAB81009E52FF /* pomeloUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAEF0C601C3BAB81009E52FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = zhouqi;
+				TargetAttributes = {
+					DAEF0C671C3BAB81009E52FF = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					DAEF0C7D1C3BAB81009E52FF = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = DAEF0C671C3BAB81009E52FF;
+					};
+					DAEF0C881C3BAB81009E52FF = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = DAEF0C671C3BAB81009E52FF;
+					};
+				};
+			};
+			buildConfigurationList = DAEF0C631C3BAB81009E52FF /* Build configuration list for PBXProject "pomelo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DAEF0C5F1C3BAB81009E52FF;
+			productRefGroup = DAEF0C691C3BAB81009E52FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAEF0C671C3BAB81009E52FF /* pomelo */,
+				DAEF0C7D1C3BAB81009E52FF /* pomeloTests */,
+				DAEF0C881C3BAB81009E52FF /* pomeloUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAEF0C661C3BAB81009E52FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEF0C781C3BAB81009E52FF /* LaunchScreen.storyboard in Resources */,
+				DAEF0C751C3BAB81009E52FF /* Assets.xcassets in Resources */,
+				DAEF0C731C3BAB81009E52FF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAEF0C7C1C3BAB81009E52FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAEF0C871C3BAB81009E52FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAEF0C641C3BAB81009E52FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEF0C701C3BAB81009E52FF /* SecondViewController.swift in Sources */,
+				DAEF0C6C1C3BAB81009E52FF /* AppDelegate.swift in Sources */,
+				DAEF0C6E1C3BAB81009E52FF /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAEF0C7A1C3BAB81009E52FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEF0C831C3BAB81009E52FF /* pomeloTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAEF0C851C3BAB81009E52FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAEF0C8E1C3BAB81009E52FF /* pomeloUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAEF0C801C3BAB81009E52FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAEF0C671C3BAB81009E52FF /* pomelo */;
+			targetProxy = DAEF0C7F1C3BAB81009E52FF /* PBXContainerItemProxy */;
+		};
+		DAEF0C8B1C3BAB81009E52FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAEF0C671C3BAB81009E52FF /* pomelo */;
+			targetProxy = DAEF0C8A1C3BAB81009E52FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DAEF0C711C3BAB81009E52FF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAEF0C721C3BAB81009E52FF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DAEF0C761C3BAB81009E52FF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DAEF0C771C3BAB81009E52FF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DAEF0C901C3BAB81009E52FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DAEF0C911C3BAB81009E52FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DAEF0C931C3BAB81009E52FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = pomelo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = work.zhouqi.pomelo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DAEF0C941C3BAB81009E52FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = pomelo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = work.zhouqi.pomelo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DAEF0C961C3BAB81009E52FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = pomeloTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = work.zhouqi.pomeloTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pomelo.app/pomelo";
+			};
+			name = Debug;
+		};
+		DAEF0C971C3BAB81009E52FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = pomeloTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = work.zhouqi.pomeloTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pomelo.app/pomelo";
+			};
+			name = Release;
+		};
+		DAEF0C991C3BAB81009E52FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = pomeloUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = work.zhouqi.pomeloUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = pomelo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		DAEF0C9A1C3BAB81009E52FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = pomeloUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = work.zhouqi.pomeloUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = pomelo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAEF0C631C3BAB81009E52FF /* Build configuration list for PBXProject "pomelo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAEF0C901C3BAB81009E52FF /* Debug */,
+				DAEF0C911C3BAB81009E52FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAEF0C921C3BAB81009E52FF /* Build configuration list for PBXNativeTarget "pomelo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAEF0C931C3BAB81009E52FF /* Debug */,
+				DAEF0C941C3BAB81009E52FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DAEF0C951C3BAB81009E52FF /* Build configuration list for PBXNativeTarget "pomeloTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAEF0C961C3BAB81009E52FF /* Debug */,
+				DAEF0C971C3BAB81009E52FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DAEF0C981C3BAB81009E52FF /* Build configuration list for PBXNativeTarget "pomeloUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAEF0C991C3BAB81009E52FF /* Debug */,
+				DAEF0C9A1C3BAB81009E52FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAEF0C601C3BAB81009E52FF /* Project object */;
+}
