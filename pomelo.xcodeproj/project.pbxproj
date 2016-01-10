@@ -7,9 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA662BD11C4157C3001D2855 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD01C4157C3001D2855 /* MainController.swift */; };
+		DA662BD31C41582B001D2855 /* FavorChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD21C41582B001D2855 /* FavorChannelTableViewController.swift */; };
+		DA662BD51C41583F001D2855 /* SuggestChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD41C41583F001D2855 /* SuggestChannelTableViewController.swift */; };
+		DA662BD71C415886001D2855 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD61C415886001D2855 /* ChannelViewController.swift */; };
+		DA662BD91C4158A8001D2855 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD81C4158A8001D2855 /* ProfileViewController.swift */; };
+		DA662BDB1C41595B001D2855 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BDA1C41595B001D2855 /* Channel.swift */; };
+		DA662BDD1C41596E001D2855 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BDC1C41596E001D2855 /* Piece.swift */; };
+		DA662BDF1C415A2A001D2855 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BDE1C415A2A001D2855 /* User.swift */; };
+		DA662BE11C415BFC001D2855 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BE01C415BFC001D2855 /* UserApi.swift */; };
+		DA662BE31C415C08001D2855 /* ChannelApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BE21C415C08001D2855 /* ChannelApi.swift */; };
+		DA662BE51C415C13001D2855 /* PieceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BE41C415C13001D2855 /* PieceApi.swift */; };
+		DA662BE71C424510001D2855 /* User+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BE61C424510001D2855 /* User+Api.swift */; };
+		DA662BE91C42451F001D2855 /* Piece+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BE81C42451F001D2855 /* Piece+Api.swift */; };
+		DA662BEB1C42452C001D2855 /* Channel+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BEA1C42452C001D2855 /* Channel+Api.swift */; };
+		DA662BED1C425156001D2855 /* ChannelListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BEC1C425156001D2855 /* ChannelListCellTableViewCell.swift */; };
 		DAEF0C6C1C3BAB81009E52FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */; };
-		DAEF0C6E1C3BAB81009E52FF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C6D1C3BAB81009E52FF /* FirstViewController.swift */; };
-		DAEF0C701C3BAB81009E52FF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C6F1C3BAB81009E52FF /* SecondViewController.swift */; };
 		DAEF0C731C3BAB81009E52FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C711C3BAB81009E52FF /* Main.storyboard */; };
 		DAEF0C751C3BAB81009E52FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C741C3BAB81009E52FF /* Assets.xcassets */; };
 		DAEF0C781C3BAB81009E52FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C761C3BAB81009E52FF /* LaunchScreen.storyboard */; };
@@ -38,10 +51,23 @@
 /* Begin PBXFileReference section */
 		0163545DB485CEE264CD683F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		79377143674F87C3310F5498 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA662BD01C4157C3001D2855 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		DA662BD21C41582B001D2855 /* FavorChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavorChannelTableViewController.swift; sourceTree = "<group>"; };
+		DA662BD41C41583F001D2855 /* SuggestChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestChannelTableViewController.swift; sourceTree = "<group>"; };
+		DA662BD61C415886001D2855 /* ChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		DA662BD81C4158A8001D2855 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DA662BDA1C41595B001D2855 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		DA662BDC1C41596E001D2855 /* Piece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		DA662BDE1C415A2A001D2855 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DA662BE01C415BFC001D2855 /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		DA662BE21C415C08001D2855 /* ChannelApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelApi.swift; sourceTree = "<group>"; };
+		DA662BE41C415C13001D2855 /* PieceApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceApi.swift; sourceTree = "<group>"; };
+		DA662BE61C424510001D2855 /* User+Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+Api.swift"; sourceTree = "<group>"; };
+		DA662BE81C42451F001D2855 /* Piece+Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Piece+Api.swift"; sourceTree = "<group>"; };
+		DA662BEA1C42452C001D2855 /* Channel+Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+Api.swift"; sourceTree = "<group>"; };
+		DA662BEC1C425156001D2855 /* ChannelListCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListCellTableViewCell.swift; sourceTree = "<group>"; };
 		DAEF0C681C3BAB81009E52FF /* pomelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pomelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DAEF0C6D1C3BAB81009E52FF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		DAEF0C6F1C3BAB81009E52FF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		DAEF0C721C3BAB81009E52FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAEF0C741C3BAB81009E52FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAEF0C771C3BAB81009E52FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,6 +110,9 @@
 		DA662BCC1C3BC595001D2855 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DA662BDA1C41595B001D2855 /* Channel.swift */,
+				DA662BDC1C41596E001D2855 /* Piece.swift */,
+				DA662BDE1C415A2A001D2855 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -91,6 +120,11 @@
 		DA662BCD1C3BC5A1001D2855 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DA662BD01C4157C3001D2855 /* MainController.swift */,
+				DA662BD21C41582B001D2855 /* FavorChannelTableViewController.swift */,
+				DA662BD41C41583F001D2855 /* SuggestChannelTableViewController.swift */,
+				DA662BD61C415886001D2855 /* ChannelViewController.swift */,
+				DA662BD81C4158A8001D2855 /* ProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -98,6 +132,7 @@
 		DA662BCE1C3BC5AE001D2855 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DA662BEC1C425156001D2855 /* ChannelListCellTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -105,6 +140,12 @@
 		DA662BCF1C3BC7A2001D2855 /* Apis */ = {
 			isa = PBXGroup;
 			children = (
+				DA662BE01C415BFC001D2855 /* UserApi.swift */,
+				DA662BE21C415C08001D2855 /* ChannelApi.swift */,
+				DA662BE41C415C13001D2855 /* PieceApi.swift */,
+				DA662BE61C424510001D2855 /* User+Api.swift */,
+				DA662BE81C42451F001D2855 /* Piece+Api.swift */,
+				DA662BEA1C42452C001D2855 /* Channel+Api.swift */,
 			);
 			name = Apis;
 			sourceTree = "<group>";
@@ -139,8 +180,6 @@
 				DA662BCD1C3BC5A1001D2855 /* Controllers */,
 				DA662BCC1C3BC595001D2855 /* Models */,
 				DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */,
-				DAEF0C6D1C3BAB81009E52FF /* FirstViewController.swift */,
-				DAEF0C6F1C3BAB81009E52FF /* SecondViewController.swift */,
 				DAEF0C711C3BAB81009E52FF /* Main.storyboard */,
 				DAEF0C741C3BAB81009E52FF /* Assets.xcassets */,
 				DAEF0C761C3BAB81009E52FF /* LaunchScreen.storyboard */,
@@ -366,9 +405,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAEF0C701C3BAB81009E52FF /* SecondViewController.swift in Sources */,
+				DA662BDB1C41595B001D2855 /* Channel.swift in Sources */,
+				DA662BE11C415BFC001D2855 /* UserApi.swift in Sources */,
+				DA662BD11C4157C3001D2855 /* MainController.swift in Sources */,
+				DA662BE31C415C08001D2855 /* ChannelApi.swift in Sources */,
 				DAEF0C6C1C3BAB81009E52FF /* AppDelegate.swift in Sources */,
-				DAEF0C6E1C3BAB81009E52FF /* FirstViewController.swift in Sources */,
+				DA662BE51C415C13001D2855 /* PieceApi.swift in Sources */,
+				DA662BD31C41582B001D2855 /* FavorChannelTableViewController.swift in Sources */,
+				DA662BEB1C42452C001D2855 /* Channel+Api.swift in Sources */,
+				DA662BE91C42451F001D2855 /* Piece+Api.swift in Sources */,
+				DA662BED1C425156001D2855 /* ChannelListCellTableViewCell.swift in Sources */,
+				DA662BDD1C41596E001D2855 /* Piece.swift in Sources */,
+				DA662BDF1C415A2A001D2855 /* User.swift in Sources */,
+				DA662BD51C41583F001D2855 /* SuggestChannelTableViewController.swift in Sources */,
+				DA662BE71C424510001D2855 /* User+Api.swift in Sources */,
+				DA662BD71C415886001D2855 /* ChannelViewController.swift in Sources */,
+				DA662BD91C4158A8001D2855 /* ProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
