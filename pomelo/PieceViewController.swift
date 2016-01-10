@@ -1,33 +1,16 @@
 //
-//  ChannelViewController.swift
+//  PieceViewController.swift
 //  pomelo
 //
-//  Created by zhouqi on 16/1/9.
+//  Created by zhouqi on 16/1/10.
 //  Copyright © 2016年 zhouqi. All rights reserved.
 //
 
 import UIKit
 
-class ChannelViewController: UITableViewController {
-    var channel:Channel!
-    var pieces:[Piece]!
-    
-    func reloadDataFromApi() {
-        let selfController:ChannelViewController = self
-        PieceApi.sharedInstance.getChannelPieceList(self.channel.channelId, callback: { (pieces: [Piece]) -> Void in
-            selfController.pieces = pieces
-            selfController.tableView.reloadData()
-        })
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController!.navigationBar.translucent = false;
+class PieceViewController: UITableViewController {
+    var piece:Piece!
 
-        if (self.pieces == nil) {
-            self.reloadDataFromApi()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,26 +35,19 @@ class ChannelViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if (self.pieces != nil) {
-            return self.pieces.count
-        } else {
-            return 0
-        }
+        return 0
     }
 
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PieceListCell", forIndexPath: indexPath) as! PieceListCell
-        cell.piece = self.pieces[indexPath.row]
-        cell.showPiece()
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
+    */
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "PushPieceDetail") {
-            let controller = segue.destinationViewController as! PieceViewController
-            controller.piece = self.pieces[self.tableView.indexPathForSelectedRow!.row]
-        }
-    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
