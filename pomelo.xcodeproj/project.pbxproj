@@ -25,6 +25,8 @@
 		DA662BEF1C4263FF001D2855 /* PieceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BEE1C4263FF001D2855 /* PieceListCell.swift */; };
 		DA662BF11C42AD36001D2855 /* PieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF01C42AD36001D2855 /* PieceViewController.swift */; };
 		DA662BF31C42AE68001D2855 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF21C42AE68001D2855 /* CommentCell.swift */; };
+		DA662BF51C451CE5001D2855 /* PieceDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF41C451CE5001D2855 /* PieceDetailCell.swift */; };
+		DA662BF71C452BC6001D2855 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF61C452BC6001D2855 /* Comment.swift */; };
 		DAEF0C6C1C3BAB81009E52FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */; };
 		DAEF0C731C3BAB81009E52FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C711C3BAB81009E52FF /* Main.storyboard */; };
 		DAEF0C751C3BAB81009E52FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C741C3BAB81009E52FF /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		DA662BEE1C4263FF001D2855 /* PieceListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceListCell.swift; sourceTree = "<group>"; };
 		DA662BF01C42AD36001D2855 /* PieceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceViewController.swift; sourceTree = "<group>"; };
 		DA662BF21C42AE68001D2855 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		DA662BF41C451CE5001D2855 /* PieceDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceDetailCell.swift; sourceTree = "<group>"; };
+		DA662BF61C452BC6001D2855 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		DAEF0C681C3BAB81009E52FF /* pomelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pomelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAEF0C721C3BAB81009E52FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				DA662BDA1C41595B001D2855 /* Channel.swift */,
 				DA662BDC1C41596E001D2855 /* Piece.swift */,
 				DA662BDE1C415A2A001D2855 /* User.swift */,
+				DA662BF61C452BC6001D2855 /* Comment.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				DA662BEC1C425156001D2855 /* ChannelListCellTableViewCell.swift */,
 				DA662BEE1C4263FF001D2855 /* PieceListCell.swift */,
 				DA662BF21C42AE68001D2855 /* CommentCell.swift */,
+				DA662BF41C451CE5001D2855 /* PieceDetailCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA662BF31C42AE68001D2855 /* CommentCell.swift in Sources */,
+				DA662BF51C451CE5001D2855 /* PieceDetailCell.swift in Sources */,
 				DA662BDB1C41595B001D2855 /* Channel.swift in Sources */,
 				DA662BE11C415BFC001D2855 /* UserApi.swift in Sources */,
 				DA662BD11C4157C3001D2855 /* MainController.swift in Sources */,
@@ -423,6 +430,7 @@
 				DAEF0C6C1C3BAB81009E52FF /* AppDelegate.swift in Sources */,
 				DA662BE51C415C13001D2855 /* PieceApi.swift in Sources */,
 				DA662BD31C41582B001D2855 /* FavorChannelTableViewController.swift in Sources */,
+				DA662BF71C452BC6001D2855 /* Comment.swift in Sources */,
 				DA662BEF1C4263FF001D2855 /* PieceListCell.swift in Sources */,
 				DA662BEB1C42452C001D2855 /* Channel+Api.swift in Sources */,
 				DA662BE91C42451F001D2855 /* Piece+Api.swift in Sources */,

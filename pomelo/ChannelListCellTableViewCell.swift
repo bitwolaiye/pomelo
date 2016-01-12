@@ -23,15 +23,17 @@ class ChannelListCellTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let channelNameLabel = UILabel()
-        self.addSubview(channelNameLabel)
-        self.channelNameLabel = channelNameLabel
-        
-        channelNameLabel.font = UIFont.systemFontOfSize(14)
-        channelNameLabel.snp_makeConstraints(closure: { (make) -> Void in
-            make.left.equalTo(self).offset(10)
-            make.top.equalTo(self.snp_top).offset(10)
-        })
+
+        self.channelNameLabel = {
+            let label = UILabel()
+            self.addSubview(label)
+            label.font = UIFont.systemFontOfSize(14)
+            label.snp_makeConstraints(closure: { (make) -> Void in
+                make.left.equalTo(self).offset(10)
+                make.top.equalTo(self.snp_top).offset(10)
+            })
+            return label
+            } ()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

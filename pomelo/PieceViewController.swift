@@ -13,6 +13,8 @@ class PieceViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tableView.registerClass(PieceDetailCell.classForCoder(), forCellReuseIdentifier: "PieceDetailCell")
+//        self.tableView.registerNib(UINib(nibName: "PieceDetailCell", bundle: nil), forCellReuseIdentifier: "PieceDetailCell")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,18 +37,39 @@ class PieceViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 2
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if (indexPath.row == 0) {
+            let cell = tableView.dequeueReusableCellWithIdentifier("PieceDetailCell", forIndexPath: indexPath) as! PieceDetailCell
+            cell.piece = self.piece
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath)
+            
+            // Configure the cell...
+            
+            return cell
+        }
     }
-    */
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 100
+        } else {
+            return 40
+        }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 100
+        } else {
+            return 40
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
