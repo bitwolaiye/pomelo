@@ -21,7 +21,7 @@
 		DA662BE71C424510001D2855 /* User+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BE61C424510001D2855 /* User+Api.swift */; };
 		DA662BE91C42451F001D2855 /* Piece+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BE81C42451F001D2855 /* Piece+Api.swift */; };
 		DA662BEB1C42452C001D2855 /* Channel+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BEA1C42452C001D2855 /* Channel+Api.swift */; };
-		DA662BED1C425156001D2855 /* ChannelListCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BEC1C425156001D2855 /* ChannelListCellTableViewCell.swift */; };
+		DA662BED1C425156001D2855 /* ChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BEC1C425156001D2855 /* ChannelListCell.swift */; };
 		DA662BEF1C4263FF001D2855 /* PieceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BEE1C4263FF001D2855 /* PieceListCell.swift */; };
 		DA662BF11C42AD36001D2855 /* PieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF01C42AD36001D2855 /* PieceViewController.swift */; };
 		DA662BF31C42AE68001D2855 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF21C42AE68001D2855 /* CommentCell.swift */; };
@@ -72,7 +72,7 @@
 		DA662BE61C424510001D2855 /* User+Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+Api.swift"; sourceTree = "<group>"; };
 		DA662BE81C42451F001D2855 /* Piece+Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Piece+Api.swift"; sourceTree = "<group>"; };
 		DA662BEA1C42452C001D2855 /* Channel+Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+Api.swift"; sourceTree = "<group>"; };
-		DA662BEC1C425156001D2855 /* ChannelListCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListCellTableViewCell.swift; sourceTree = "<group>"; };
+		DA662BEC1C425156001D2855 /* ChannelListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListCell.swift; sourceTree = "<group>"; };
 		DA662BEE1C4263FF001D2855 /* PieceListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceListCell.swift; sourceTree = "<group>"; };
 		DA662BF01C42AD36001D2855 /* PieceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceViewController.swift; sourceTree = "<group>"; };
 		DA662BF21C42AE68001D2855 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		DA662BCE1C3BC5AE001D2855 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				DA662BEC1C425156001D2855 /* ChannelListCellTableViewCell.swift */,
+				DA662BEC1C425156001D2855 /* ChannelListCell.swift */,
 				DA662BEE1C4263FF001D2855 /* PieceListCell.swift */,
 				DA662BF21C42AE68001D2855 /* CommentCell.swift */,
 				DA662BF41C451CE5001D2855 /* PieceDetailCell.swift */,
@@ -440,7 +440,7 @@
 				DA662BEF1C4263FF001D2855 /* PieceListCell.swift in Sources */,
 				DA662BEB1C42452C001D2855 /* Channel+Api.swift in Sources */,
 				DA662BE91C42451F001D2855 /* Piece+Api.swift in Sources */,
-				DA662BED1C425156001D2855 /* ChannelListCellTableViewCell.swift in Sources */,
+				DA662BED1C425156001D2855 /* ChannelListCell.swift in Sources */,
 				DA662BFB1C45F769001D2855 /* CommentApi.swift in Sources */,
 				DA662BDD1C41596E001D2855 /* Piece.swift in Sources */,
 				DA662BDF1C415A2A001D2855 /* User.swift in Sources */,

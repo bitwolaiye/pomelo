@@ -58,7 +58,7 @@ class FavorChannelTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: ChannelListCellTableViewCell = tableView.dequeueReusableCellWithIdentifier("ChannelListCell", forIndexPath: indexPath) as! ChannelListCellTableViewCell
+        let cell: ChannelListCell = tableView.dequeueReusableCellWithIdentifier("ChannelListCell", forIndexPath: indexPath) as! ChannelListCell
         cell.channel = self.channels[indexPath.row]
         cell.showChannel()
         return cell
