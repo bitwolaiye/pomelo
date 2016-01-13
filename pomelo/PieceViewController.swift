@@ -10,6 +10,23 @@ import UIKit
 
 class PieceViewController: UITableViewController {
     var piece:Piece!
+    var comments:[Comment]!
+
+    func reloadDataFromApi() {
+        let selfController:PieceViewController = self
+        CommentApi.sharedInstance.getCommentList(self.piece.pieceId, callback: { (comments: [Comment]) -> Void in
+            selfController.comments = comments
+            selfController.tableView.reloadData()
+        })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController!.navigationBar.translucent = false;
+        
+        if (self.comments == nil) {
+            self.reloadDataFromApi()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +54,12 @@ class PieceViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        if self.comments != nil {
+            return self.comments.count + 1
+        } else {
+            return 1
+        }
+
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -47,8 +69,8 @@ class PieceViewController: UITableViewController {
             return cell
             
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath)
-            
+            let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentCell
+            cell.comment = self.comments[indexPath.row - 1]
             // Configure the cell...
             
             return cell

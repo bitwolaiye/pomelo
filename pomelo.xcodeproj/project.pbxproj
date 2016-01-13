@@ -27,6 +27,8 @@
 		DA662BF31C42AE68001D2855 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF21C42AE68001D2855 /* CommentCell.swift */; };
 		DA662BF51C451CE5001D2855 /* PieceDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF41C451CE5001D2855 /* PieceDetailCell.swift */; };
 		DA662BF71C452BC6001D2855 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF61C452BC6001D2855 /* Comment.swift */; };
+		DA662BF91C45F380001D2855 /* Comment+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF81C45F380001D2855 /* Comment+Api.swift */; };
+		DA662BFB1C45F769001D2855 /* CommentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BFA1C45F769001D2855 /* CommentApi.swift */; };
 		DAEF0C6C1C3BAB81009E52FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */; };
 		DAEF0C731C3BAB81009E52FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C711C3BAB81009E52FF /* Main.storyboard */; };
 		DAEF0C751C3BAB81009E52FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C741C3BAB81009E52FF /* Assets.xcassets */; };
@@ -76,6 +78,8 @@
 		DA662BF21C42AE68001D2855 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		DA662BF41C451CE5001D2855 /* PieceDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceDetailCell.swift; sourceTree = "<group>"; };
 		DA662BF61C452BC6001D2855 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		DA662BF81C45F380001D2855 /* Comment+Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comment+Api.swift"; sourceTree = "<group>"; };
+		DA662BFA1C45F769001D2855 /* CommentApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentApi.swift; sourceTree = "<group>"; };
 		DAEF0C681C3BAB81009E52FF /* pomelo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pomelo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEF0C6B1C3BAB81009E52FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAEF0C721C3BAB81009E52FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				DA662BE61C424510001D2855 /* User+Api.swift */,
 				DA662BE81C42451F001D2855 /* Piece+Api.swift */,
 				DA662BEA1C42452C001D2855 /* Channel+Api.swift */,
+				DA662BF81C45F380001D2855 /* Comment+Api.swift */,
+				DA662BFA1C45F769001D2855 /* CommentApi.swift */,
 			);
 			name = Apis;
 			sourceTree = "<group>";
@@ -435,11 +441,13 @@
 				DA662BEB1C42452C001D2855 /* Channel+Api.swift in Sources */,
 				DA662BE91C42451F001D2855 /* Piece+Api.swift in Sources */,
 				DA662BED1C425156001D2855 /* ChannelListCellTableViewCell.swift in Sources */,
+				DA662BFB1C45F769001D2855 /* CommentApi.swift in Sources */,
 				DA662BDD1C41596E001D2855 /* Piece.swift in Sources */,
 				DA662BDF1C415A2A001D2855 /* User.swift in Sources */,
 				DA662BD51C41583F001D2855 /* SuggestChannelTableViewController.swift in Sources */,
 				DA662BE71C424510001D2855 /* User+Api.swift in Sources */,
 				DA662BD71C415886001D2855 /* ChannelViewController.swift in Sources */,
+				DA662BF91C45F380001D2855 /* Comment+Api.swift in Sources */,
 				DA662BD91C4158A8001D2855 /* ProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
