@@ -10,6 +10,8 @@ PODS:
   - SwiftDate (2.0.2)
   - SwiftyJSON (2.3.2)
   - Toast-Swift (1.0.0)
+  - XXPlaceHolder (1.1)
+  - YYText (0.9.18)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
@@ -19,6 +21,8 @@ DEPENDENCIES:
   - SwiftDate (~> 2.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - Toast-Swift (~> 1.0.0)
+  - XXPlaceHolder
+  - YYText
 
 EXTERNAL SOURCES:
   SwiftyJSON:
@@ -38,5 +42,7 @@ SPEC CHECKSUMS:
   SwiftDate: b4f4d0962afe48365ad2800c9850a6626deb9359
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Toast-Swift: 709908e9f9a96dfd72438f9301ae28e3e98c16bb
+  XXPlaceHolder: 0e7da0129f0ab34c2a04dbb33b62aee6b1d5e1f7
+  YYText: f098883789a7336ff3e13653ba7c7cb1a07ca560
 
 COCOAPODS: 0.39.0

@@ -20,8 +20,12 @@ class FavorChannelTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         if (self.channels == nil) {
             self.reloadDataFromApi()
+        }
+        if let selectedRow = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRowAtIndexPath(selectedRow, animated: false)
         }
     }
     
@@ -29,7 +33,7 @@ class FavorChannelTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+         self.clearsSelectionOnViewWillAppear = true
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -70,6 +74,16 @@ class FavorChannelTableViewController: UITableViewController {
             controller.channel = self.channels[self.tableView.indexPathForSelectedRow!.item]
         }
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        ChannelListCell.h
+//    }
 
     /*
     // Override to support conditional editing of the table view.

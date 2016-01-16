@@ -29,16 +29,16 @@
         <scene sceneID="ljh-1r-sZj">
             <objects>
                 <tableViewController id="0Gw-oL-OEt" customClass="FavorChannelTableViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9Mc-T6-0EL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9Mc-T6-0EL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChannelListCell" id="iwV-Cu-zGf" customClass="ChannelListCell" customModule="pomelo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="ChannelListCell" id="iwV-Cu-zGf" customClass="ChannelListCell" customModule="pomelo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iwV-Cu-zGf" id="zk5-vP-ES3">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="1651" y="-6"/>
         </scene>
-        <!--Channel View Controller-->
+        <!--Title-->
         <scene sceneID="zQL-Ko-t2b">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="lov-Hx-Wbs" customClass="ChannelViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
@@ -115,6 +115,11 @@
                             <outlet property="delegate" destination="lov-Hx-Wbs" id="k2Z-SX-goE"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="ekj-Mb-nRx">
+                        <barButtonItem key="rightBarButtonItem" title="..." id="Ag5-9W-DZi"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZyX-oR-i02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -238,6 +243,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Kbo-1M-svy"/>
+        <segue reference="5yu-kT-U8a"/>
     </inferredMetricsTieBreakers>
 </document>

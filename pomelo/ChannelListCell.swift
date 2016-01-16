@@ -48,8 +48,6 @@ class ChannelListCell: UITableViewCell {
             })
             return label
             } ()
-        
-
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
