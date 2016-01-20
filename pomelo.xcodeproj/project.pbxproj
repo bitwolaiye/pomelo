@@ -36,6 +36,9 @@
 		DAEF0C781C3BAB81009E52FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAEF0C761C3BAB81009E52FF /* LaunchScreen.storyboard */; };
 		DAEF0C831C3BAB81009E52FF /* pomeloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C821C3BAB81009E52FF /* pomeloTests.swift */; };
 		DAEF0C8E1C3BAB81009E52FF /* pomeloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEF0C8D1C3BAB81009E52FF /* pomeloUITests.swift */; };
+		DAF71AC41C4E10EC00969691 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71AC31C4E10EC00969691 /* BaseApi.swift */; };
+		DAF71AC61C4F7F3700969691 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71AC51C4F7F3700969691 /* RootController.swift */; };
+		DAF71AC81C4F7F6B00969691 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF71AC71C4F7F6B00969691 /* RegisterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,9 @@
 		DAEF0C891C3BAB81009E52FF /* pomeloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pomeloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEF0C8D1C3BAB81009E52FF /* pomeloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pomeloUITests.swift; sourceTree = "<group>"; };
 		DAEF0C8F1C3BAB81009E52FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAF71AC31C4E10EC00969691 /* BaseApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
+		DAF71AC51C4F7F3700969691 /* RootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
+		DAF71AC71C4F7F6B00969691 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,8 @@
 				DA662BD61C415886001D2855 /* ChannelViewController.swift */,
 				DA662BD81C4158A8001D2855 /* ProfileViewController.swift */,
 				DA662BF01C42AD36001D2855 /* PieceViewController.swift */,
+				DAF71AC51C4F7F3700969691 /* RootController.swift */,
+				DAF71AC71C4F7F6B00969691 /* RegisterController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -176,6 +184,7 @@
 				DA662BEA1C42452C001D2855 /* Channel+Api.swift */,
 				DA662BF81C45F380001D2855 /* Comment+Api.swift */,
 				DA662BFA1C45F769001D2855 /* CommentApi.swift */,
+				DAF71AC31C4E10EC00969691 /* BaseApi.swift */,
 			);
 			name = Apis;
 			sourceTree = "<group>";
@@ -431,6 +440,8 @@
 				DA662BDB1C41595B001D2855 /* Channel.swift in Sources */,
 				DA662BE11C415BFC001D2855 /* UserApi.swift in Sources */,
 				DA662BD11C4157C3001D2855 /* MainController.swift in Sources */,
+				DAF71AC61C4F7F3700969691 /* RootController.swift in Sources */,
+				DAF71AC41C4E10EC00969691 /* BaseApi.swift in Sources */,
 				DA662BF11C42AD36001D2855 /* PieceViewController.swift in Sources */,
 				DA662BE31C415C08001D2855 /* ChannelApi.swift in Sources */,
 				DAEF0C6C1C3BAB81009E52FF /* AppDelegate.swift in Sources */,
@@ -438,6 +449,7 @@
 				DA662BD31C41582B001D2855 /* FavorChannelTableViewController.swift in Sources */,
 				DA662BF71C452BC6001D2855 /* Comment.swift in Sources */,
 				DA662BEF1C4263FF001D2855 /* PieceListCell.swift in Sources */,
+				DAF71AC81C4F7F6B00969691 /* RegisterController.swift in Sources */,
 				DA662BEB1C42452C001D2855 /* Channel+Api.swift in Sources */,
 				DA662BE91C42451F001D2855 /* Piece+Api.swift in Sources */,
 				DA662BED1C425156001D2855 /* ChannelListCell.swift in Sources */,

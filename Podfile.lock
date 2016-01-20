@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.1.4)
+  - MBProgressHUD (0.9.2)
   - QRCodeReaderViewController (4.0.1)
   - Realm (0.97.0):
     - Realm/Headers (= 0.97.0)
@@ -9,18 +10,19 @@ PODS:
   - SnapKit (0.15.0)
   - SwiftDate (2.0.2)
   - SwiftyJSON (2.3.2)
-  - Toast-Swift (1.0.0)
+  - Toast (3.0)
   - XXPlaceHolder (1.1)
   - YYText (0.9.18)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - MBProgressHUD (~> 0.9.2)
   - QRCodeReaderViewController (~> 4.0.1)
   - RealmSwift
   - SnapKit (~> 0.15.0)
   - SwiftDate (~> 2.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
-  - Toast-Swift (~> 1.0.0)
+  - Toast (~> 3.0)
   - XXPlaceHolder
   - YYText
 
@@ -35,13 +37,14 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: fbc829692f351fa1d8a31dd75fd7f7f56fea31fb
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   QRCodeReaderViewController: 6538745c8f4ffa9407a26bd7f9489ea01739e7b0
   Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
   RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftDate: b4f4d0962afe48365ad2800c9850a6626deb9359
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  Toast-Swift: 709908e9f9a96dfd72438f9301ae28e3e98c16bb
+  Toast: 32c59229abfcf41850162b83bb9259dc84372473
   XXPlaceHolder: 0e7da0129f0ab34c2a04dbb33b62aee6b1d5e1f7
   YYText: f098883789a7336ff3e13653ba7c7cb1a07ca560
 

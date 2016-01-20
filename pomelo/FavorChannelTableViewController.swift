@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import MBProgressHUD
+import Toast
 
 class FavorChannelTableViewController: UITableViewController {
     var channels:[Channel]!
+    
+    @IBAction func createChannel(sender: AnyObject) {
+//        let rootController = UIApplication.sharedApplication().delegate!.window!?.rootViewController as! RootController
+//        rootController.toRegister()
+        
+    }
     
     func reloadDataFromApi() {
         let selfController:FavorChannelTableViewController = self

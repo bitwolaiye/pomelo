@@ -10,6 +10,11 @@ import UIKit
 
 class ProfileViewController: UITableViewController {
 
+    @IBAction func login(sender: AnyObject) {
+        let rootController = UIApplication.sharedApplication().delegate!.window!?.rootViewController as! RootController
+        rootController.toRegister()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +23,13 @@ class ProfileViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UserApi.sharedInstance.getSelfProfile { (user) -> Void in
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {

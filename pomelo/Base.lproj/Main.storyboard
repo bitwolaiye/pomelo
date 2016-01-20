@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b3W-Mu-6eO">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
+        <!--Root Controller-->
+        <scene sceneID="bPd-Xg-8C7">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="b3W-Mu-6eO" customClass="RootController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bCZ-bQ-MlM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="49e-Tb-3d3" kind="relationship" relationship="rootViewController" id="g11-KZ-K6q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nEp-0I-lCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-816" y="0.0"/>
+        </scene>
+        <!--Register Controller-->
+        <scene sceneID="jOV-Wn-f9f">
+            <objects>
+                <viewController storyboardIdentifier="RegisterController" id="oEn-Fx-rgk" customClass="RegisterController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KVe-n9-DhX"/>
+                        <viewControllerLayoutGuide type="bottom" id="f9k-jF-nwH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6v5-BF-MgQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NhI-H1-lA4">
+                                <rect key="frame" x="150" y="333" width="46" height="30"/>
+                                <state key="normal" title="登录"/>
+                                <connections>
+                                    <action selector="login:" destination="oEn-Fx-rgk" eventType="touchUpInside" id="v5q-z0-hvh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rh-Ot-SSV">
+                                <rect key="frame" x="277" y="333" width="46" height="30"/>
+                                <state key="normal" title="注册"/>
+                                <connections>
+                                    <action selector="register:" destination="oEn-Fx-rgk" eventType="touchUpInside" id="KVK-aq-cEI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lV9-2y-ZYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="-687"/>
+        </scene>
         <!--Main Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController hidesBottomBarWhenPushed="YES" id="49e-Tb-3d3" customClass="MainController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mM8-RE-9fE"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -51,7 +102,9 @@
                             <outlet property="delegate" destination="0Gw-oL-OEt" id="Bax-7h-84a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3Bf-gG-A24"/>
+                    <navigationItem key="navigationItem" id="3Bf-gG-A24">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pUh-8c-hFq"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Mi-kh-CyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="3440" y="-6"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Title-->
         <scene sceneID="OB0-1v-zoI">
             <objects>
                 <tableViewController id="Cri-YS-qH6" customClass="ProfileViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
@@ -184,7 +237,13 @@
                             <outlet property="delegate" destination="Cri-YS-qH6" id="tTb-lO-bHF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="cwA-id-ExG"/>
+                    <navigationItem key="navigationItem" title="Title" id="LiS-F6-Jv1">
+                        <barButtonItem key="rightBarButtonItem" title="登录" id="Gut-9j-9sA">
+                            <connections>
+                                <action selector="login:" destination="Cri-YS-qH6" id="zpC-kV-t9a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjJ-RE-dHL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -243,6 +302,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5yu-kT-U8a"/>
+        <segue reference="Kbo-1M-svy"/>
     </inferredMetricsTieBreakers>
 </document>
