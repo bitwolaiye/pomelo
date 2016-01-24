@@ -10,31 +10,23 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class ChannelApi: NSObject {
+class ChannelApi: BaseApi {
     static let sharedInstance = ChannelApi()
+    
     func getFavorChannelList(callback: ([Channel]) -> Void) -> Void {
-        let url = "http://127.0.0.1:8100/pomelo/api/v1/channel"
-        let request = Alamofire.request(.GET, url)
-        request.responseJSON {
-            response in
-            if let value = response.result.value {
-                let json = JSON(value)
-                callback(Channel.load_array(json["list"].array!))
-                print("JSON: \(value)")
-            }
+        
+        self.get("/channel", callback: { (json) -> Void in
+            callback(Channel.load_array(json["list"].array!))
+            }) { (json) -> Void in
+                
         }
     }
     
     func getSuggestChannelList(callback: ([Channel]) -> Void) -> Void {
-        let url = "http://127.0.0.1:8100/pomelo/api/v1/channel"
-        let request = Alamofire.request(.GET, url)
-        request.responseJSON {
-            response in
-            if let value = response.result.value {
-                let json = JSON(value)
-                callback(Channel.load_array(json["list"].array!))
-                print("JSON: \(value)")
-            }
+        self.get("/channel", callback: { (json) -> Void in
+            callback(Channel.load_array(json["list"].array!))
+            }) { (json) -> Void in
+                
         }
     }
 }

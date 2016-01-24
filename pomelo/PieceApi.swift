@@ -10,19 +10,25 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class PieceApi: NSObject {
+class PieceApi: BaseApi {
     static let sharedInstance = PieceApi()
     
     func getChannelPieceList(chanelId:Int, callback: ([Piece]) -> Void) -> Void {
-        let url = "http://127.0.0.1:8100/pomelo/api/v1/channel/\(chanelId)/piece/list"
-        let request = Alamofire.request(.GET, url)
-        request.responseJSON {
-            response in
-            if let value = response.result.value {
-                let json = JSON(value)
-                callback(Piece.load_array(json["list"].array!))
-                print("JSON: \(value)")
-            }
+        
+        let url = "/channel/\(chanelId)/piece/list"
+        self.get(url, callback: { (json) -> Void in
+            callback(Piece.load_array(json["list"].array!))
+            }) { (json) -> Void in
+                
+        }
+    }
+    
+    func addPiece(channelId: Int, channelText: String, callback: (Int) -> Void) -> Void {
+        let url = "/piece"
+        self.post(url, parameters: ["channel_id": channelId, "channel_text": channelText], callback: { (json) -> Void in
+            callback(json["piece_id"].int!)
+            }) { (json) -> Void in
+                
         }
     }
 

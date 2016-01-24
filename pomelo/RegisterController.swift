@@ -61,7 +61,7 @@ class RegisterController: UIViewController {
             
             stackView.axis = UILayoutConstraintAxis.Horizontal
             stackView.alignment = UIStackViewAlignment.Center
-            stackView.distribution = UIStackViewDistribution.EqualSpacing
+            stackView.distribution = UIStackViewDistribution.Fill
             
             let spacerFront = UIView()
             spacerFront.snp_makeConstraints(closure: { (make) -> Void in
@@ -74,8 +74,10 @@ class RegisterController: UIViewController {
             stackView.addArrangedSubview(label)
             label.text = "用户名"
             label.font = UIFont(name: label.font.fontName, size: 14)
+            label.backgroundColor = UIColor.grayColor()
             label.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(30)
+                make.width.equalTo(50)
             })
             
             self.userNameTextField = {
@@ -87,11 +89,12 @@ class RegisterController: UIViewController {
                 textField.borderStyle = UITextBorderStyle.None
                 textField.clearButtonMode = UITextFieldViewMode.WhileEditing
                 textField.clearsOnBeginEditing = true
-                
+                textField.font = UIFont(name: textField.font!.fontName, size: 14)
                 textField.backgroundColor = UIColor.grayColor()
                 
                 textField.snp_makeConstraints(closure: { (make) -> Void in
-                    make.width.equalTo(250)
+                    make.width.equalTo(240)
+                    make.height.equalTo(30)
                 })
                 
                 return textField
@@ -119,7 +122,7 @@ class RegisterController: UIViewController {
             
             stackView.axis = UILayoutConstraintAxis.Horizontal
             stackView.alignment = UIStackViewAlignment.Center
-            stackView.distribution = UIStackViewDistribution.EqualSpacing
+            stackView.distribution = UIStackViewDistribution.Fill
             
             let spacerFront = UIView()
             spacerFront.snp_makeConstraints(closure: { (make) -> Void in
@@ -132,8 +135,10 @@ class RegisterController: UIViewController {
             stackView.addArrangedSubview(label)
             label.text = "密码"
             label.font = UIFont(name: label.font.fontName, size: 14)
+            label.backgroundColor = UIColor.grayColor()
             label.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(30)
+                make.width.equalTo(50)
             })
             
             self.passwordTextField = {
@@ -145,11 +150,12 @@ class RegisterController: UIViewController {
                 textField.borderStyle = UITextBorderStyle.None
                 textField.clearButtonMode = UITextFieldViewMode.WhileEditing
                 textField.clearsOnBeginEditing = true
-                
+                textField.font = UIFont(name: textField.font!.fontName, size: 14)
                 textField.backgroundColor = UIColor.grayColor()
                 
                 textField.snp_makeConstraints(closure: { (make) -> Void in
-                    make.width.equalTo(250)
+                    make.width.equalTo(240)
+                    make.height.equalTo(30)
                 })
                 
                 return textField
@@ -161,6 +167,7 @@ class RegisterController: UIViewController {
                 make.height.equalTo(30).priorityLow()
                 make.width.equalTo(spacerFront.snp_width)
             })
+
             
             stackView.snp_makeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(container.snp_width)
@@ -177,6 +184,47 @@ class RegisterController: UIViewController {
             stackView.axis = UILayoutConstraintAxis.Horizontal
             stackView.alignment = UIStackViewAlignment.Center
             stackView.distribution = UIStackViewDistribution.EqualSpacing
+            
+            let spacerFront = UIView()
+            spacerFront.snp_makeConstraints(closure: { (make) -> Void in
+                make.height.equalTo(30)
+            })
+            stackView.addArrangedSubview(spacerFront)
+            
+            let registerBtn:UIButton = {
+                let button = UIButton(type: UIButtonType.System)
+                stackView.addArrangedSubview(button)
+                button.setTitle("注册", forState: UIControlState.Normal)
+                button.snp_makeConstraints(closure: { (make) -> Void in
+                    make.width.equalTo(100)
+                    make.height.equalTo(40)
+                })
+                
+                button.addTarget(self, action: "register:", forControlEvents: UIControlEvents.TouchUpInside)
+                
+                return button
+            } ()
+            
+            let loginBtn:UIButton = {
+                let button = UIButton(type: UIButtonType.System)
+                stackView.addArrangedSubview(button)
+                button.setTitle("登录", forState: UIControlState.Normal)
+                button.snp_makeConstraints(closure: { (make) -> Void in
+                    make.width.equalTo(100)
+                    make.height.equalTo(40)
+                })
+                
+                button.addTarget(self, action: "login:", forControlEvents: UIControlEvents.TouchUpInside)
+                
+                return button
+            } ()
+            
+            let spacerBack = UIView()
+            stackView.addArrangedSubview(spacerBack)
+            spacerBack.snp_makeConstraints(closure: { (make) -> Void in
+                make.height.equalTo(30).priorityLow()
+                make.width.equalTo(spacerFront.snp_width)
+            })
             
             return stackView
         } ()
