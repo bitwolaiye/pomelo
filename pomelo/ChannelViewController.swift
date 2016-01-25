@@ -9,6 +9,7 @@
 import UIKit
 
 class ChannelViewController: UITableViewController {
+    var prototypeCell:PieceListCell!
     var channel:Channel!
     var pieces:[Piece]!
     
@@ -23,8 +24,11 @@ class ChannelViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         self.navigationController!.navigationBar.translucent = false;
 
-        if (self.pieces == nil) {
+        if (self.pieces == nil && self.channel != nil) {
             self.reloadDataFromApi()
+        }
+        if let selectedRow = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRowAtIndexPath(selectedRow, animated: false)
         }
     }
     
@@ -36,6 +40,11 @@ class ChannelViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        prototypeCell = tableView.dequeueReusableCellWithIdentifier("PieceListCell") as! PieceListCell
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,8 +71,15 @@ class ChannelViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PieceListCell", forIndexPath: indexPath) as! PieceListCell
         cell.piece = self.pieces[indexPath.row]
-        cell.showPiece()
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let cell = self.prototypeCell
+        cell.piece = self.pieces[indexPath.row]
+        cell.layoutSubviews()
+        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        return 1  + size.height;
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

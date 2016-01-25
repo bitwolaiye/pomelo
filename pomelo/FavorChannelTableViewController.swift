@@ -72,14 +72,14 @@ class FavorChannelTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: ChannelListCell = tableView.dequeueReusableCellWithIdentifier("ChannelListCell", forIndexPath: indexPath) as! ChannelListCell
         cell.channel = self.channels[indexPath.row]
-        cell.showChannel()
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "PushChannelDetail") {
             let controller = segue.destinationViewController as! ChannelViewController
-            controller.channel = self.channels[self.tableView.indexPathForSelectedRow!.item]
+            let channel = self.channels[self.tableView.indexPathForSelectedRow!.item]
+            controller.channel = channel
         }
     }
     

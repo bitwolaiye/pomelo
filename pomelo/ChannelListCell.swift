@@ -14,10 +14,10 @@ import Toast_Swift
 class ChannelListCell: UITableViewCell {
     @IBOutlet weak var channelNameLabel:UILabel!
     @IBOutlet weak var channelAvatarImage:UIImageView!
-    var channel:Channel!
-    
-    func showChannel() {
-        self.channelNameLabel.text = self.channel.channelName
+    var channel:Channel! {
+        didSet {
+            self.channelNameLabel.text = self.channel.channelName
+        }
     }
 
     override func awakeFromNib() {

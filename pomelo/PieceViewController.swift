@@ -9,6 +9,8 @@
 import UIKit
 
 class PieceViewController: UITableViewController {
+    var piecePrototypeCell:PieceDetailCell!
+    var commentPrototypeCell:CommentCell!
     var piece:Piece!
     var comments:[Comment]!
 
@@ -38,6 +40,12 @@ class PieceViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.allowsSelection = false
+        piecePrototypeCell = tableView.dequeueReusableCellWithIdentifier("PieceDetailCell") as! PieceDetailCell
+        commentPrototypeCell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,19 +85,29 @@ class PieceViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 100
-        } else {
-            return 40
-        }
-    }
+//    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if indexPath.row == 0 {
+//            return 100
+//        } else {
+//            return 40
+//        }
+//    }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 100
+            let cell = self.piecePrototypeCell
+            cell.piece = self.piece
+            cell.layoutSubviews()
+            let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+            return 1  + size.height;
         } else {
-            return 40
+            let cell = self.commentPrototypeCell
+            cell.comment = self.comments[indexPath.row - 1]
+            cell.layoutSubviews()
+            let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+            return 1  + size.height;
+
+//            return 40
         }
     }
 
