@@ -22,11 +22,22 @@ class CommentCell: UITableViewCell {
         }
     }
     
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.initSubViews()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        
+        self.initSubViews()
+    }
+    
+    func initSubViews() {
         self.userAvatarImgView = {
             let imageView = UIImageView()
             self.contentView.addSubview(imageView)

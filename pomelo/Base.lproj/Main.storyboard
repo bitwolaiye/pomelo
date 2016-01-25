@@ -151,16 +151,34 @@
                         <viewControllerLayoutGuide type="bottom" id="btW-WZ-Zbp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8PH-HP-qZ5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="bmj-CX-Luk" kind="show" identifier="PushPieceDetail" id="CfM-gk-XSJ"/>
+                        <segue destination="phS-Hd-ylh" kind="show" identifier="PushPieceDetail" id="hSD-Ko-xuh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ror-1s-mST" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2572" y="-687"/>
+        </scene>
+        <!--Piece2 View Controller-->
+        <scene sceneID="JiN-og-m9V">
+            <objects>
+                <viewController id="phS-Hd-ylh" customClass="Piece2ViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Zg-5w-d8F"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cj6-jr-4MY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sfa-Jv-cmS">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5M-ar-1Ny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3422" y="-666.75"/>
         </scene>
         <!--Title-->
         <scene sceneID="zQL-Ko-t2b">
@@ -321,7 +339,4 @@
             <point key="canvasLocation" x="831" y="-774"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="CfM-gk-XSJ"/>
-    </inferredMetricsTieBreakers>
 </document>

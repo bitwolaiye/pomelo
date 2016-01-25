@@ -28,9 +28,22 @@ class PieceDetailCell: UITableViewCell {
         }
     }
     
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.initSubViews()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.initSubViews()
+    }
+    
+    func initSubViews() {
         self.pieceTextLabel = {
             let label = UILabel()
             self.contentView.addSubview(label)
@@ -41,7 +54,7 @@ class PieceDetailCell: UITableViewCell {
                 make.top.equalTo(self.contentView.snp_top).offset(10)
             })
             return label
-        } ()
+            } ()
         
         self.userAvatarImgView = {
             let imageView = UIImageView()
@@ -186,7 +199,6 @@ class PieceDetailCell: UITableViewCell {
             make.width.equalTo(self.snp_width)
             make.bottom.equalTo(staticStackView.snp_bottom).offset(10)
         }
-
     }
     
 //    override func awakeAfterUsingCoder(aDecoder: NSCoder) -> AnyObject? {

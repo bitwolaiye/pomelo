@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import YYText
 
-class Piece2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class Piece2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YYTextKeyboardObserver {
     @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var commentTextField:YYTextView!
     
     var piecePrototypeCell:PieceDetailCell!
     var commentPrototypeCell:CommentCell!
@@ -69,9 +71,27 @@ class Piece2ViewController: UIViewController, UITableViewDataSource, UITableView
             return tableView
             } ()
         
+        self.commentTextField = {
+            let textField = YYTextView()
+            
+            self.view.addSubview(textField)
+            
+            textField.backgroundColor = UIColor.grayColor()
+            textField.snp_makeConstraints(closure: { (make) -> Void in
+                make.bottom.equalTo(self.view)
+                make.height.equalTo(40)
+                make.left.equalTo(0)
+                make.right.equalTo(self.view)
+            })
+            
+            return textField
+            } ()
+
         
         piecePrototypeCell = tableView.dequeueReusableCellWithIdentifier("PieceDetailCell") as! PieceDetailCell
         commentPrototypeCell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
+        
+        YYTextKeyboardManager.defaultManager().addObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -135,6 +155,21 @@ class Piece2ViewController: UIViewController, UITableViewDataSource, UITableView
             
             //            return 40
         }
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if self.commentTextField.isFirstResponder() {
+            self.commentTextField.resignFirstResponder()
+        }
+    }
+    
+    func keyboardChangedWithTransition(transition: YYTextKeyboardTransition) {
+        
+        let kbFrame = YYTextKeyboardManager.defaultManager().convertRect(transition.toFrame, toView: self.view)
+        var textFrame = self.commentTextField.frame
+        textFrame.origin.y = kbFrame.origin.y - textFrame.size.height
+        self.commentTextField.frame = textFrame
+        
     }
     
     /*

@@ -135,12 +135,18 @@ class Channel2ViewController: UIViewController, UITableViewDataSource, UITableVi
         self.performSegueWithIdentifier("PushPieceDetail", sender: self)
     }
     
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if self.pieceTextField.isFirstResponder() {
+            self.pieceTextField.resignFirstResponder()
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if self.pieceTextField.isFirstResponder() {
             self.pieceTextField.resignFirstResponder()
         }
         if (segue.identifier == "PushPieceDetail") {
-            let controller = segue.destinationViewController as! PieceViewController
+            let controller = segue.destinationViewController as! Piece2ViewController
             controller.piece = self.pieces[self.tableView.indexPathForSelectedRow!.row]
         }
     }
@@ -197,10 +203,6 @@ class Channel2ViewController: UIViewController, UITableViewDataSource, UITableVi
     // Pass the selected object to the new view controller.
     }
     */
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if self.pieceTextField.isFirstResponder() {
-            self.pieceTextField.resignFirstResponder()
-        }
-    }
+    
 
 }
