@@ -32,14 +32,24 @@ class PieceListCell: UITableViewCell {
     @IBAction func like(sender: AnyObject) {
         
     }
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.initSubViews()
+    }
 
-//    func showPiece() {
-//        
-//    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.initSubViews()
+    }
+    
+    func initSubViews() {
         let PieceTextLabel = UILabel()
         self.contentView.addSubview(PieceTextLabel)
         self.PieceTextLabel = PieceTextLabel
@@ -64,9 +74,9 @@ class PieceListCell: UITableViewCell {
                 make.left.equalTo(self.contentView.snp_left).offset(10)
                 make.top.equalTo(self.PieceTextLabel.snp_bottom).offset(10)
             }
-
+            
             return imageView
-        } ()
+            } ()
         
         self.userNameLabel = {
             let label = UILabel()
@@ -80,7 +90,7 @@ class PieceListCell: UITableViewCell {
             })
             
             return label
-        } ()
+            } ()
         
         self.pieceTimeLabel = {
             let label = UILabel()
@@ -94,7 +104,7 @@ class PieceListCell: UITableViewCell {
             })
             
             return label
-        } ()
+            } ()
         
         let sperateView:UIView = {
             let view = UIView()
@@ -121,7 +131,7 @@ class PieceListCell: UITableViewCell {
             stackView.axis = UILayoutConstraintAxis.Horizontal
             stackView.alignment = UIStackViewAlignment.Center
             stackView.distribution = UIStackViewDistribution.FillEqually
-
+            
             self.likeCntLabel = {
                 let label = UILabel()
                 
@@ -129,13 +139,13 @@ class PieceListCell: UITableViewCell {
                 
                 label.font = UIFont.systemFontOfSize(12)
                 label.textAlignment = NSTextAlignment.Center
-//                label.backgroundColor = UIColor.brownColor()
+                //                label.backgroundColor = UIColor.brownColor()
                 label.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(stackView.snp_height)
                 })
                 
                 return label
-            } ()
+                } ()
             
             self.commentCntLabel = {
                 let label = UILabel()
@@ -144,20 +154,20 @@ class PieceListCell: UITableViewCell {
                 
                 label.font = UIFont.systemFontOfSize(12)
                 label.textAlignment = NSTextAlignment.Center
-//                label.backgroundColor = UIColor.grayColor()
+                //                label.backgroundColor = UIColor.grayColor()
                 label.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(stackView.snp_height)
                 })
                 
                 return label
-            } ()
+                } ()
             
             let view:UIView = {
                 let view = UIView()
                 
                 stackView.addArrangedSubview(view)
                 
-//                view.backgroundColor = UIColor.greenColor()
+                //                view.backgroundColor = UIColor.greenColor()
                 
                 view.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(stackView.snp_height)
@@ -175,7 +185,7 @@ class PieceListCell: UITableViewCell {
                     })
                     
                     return button
-                } ()
+                    } ()
                 
                 return view
             } ()
@@ -196,7 +206,6 @@ class PieceListCell: UITableViewCell {
             make.width.equalTo(self.snp_width)
             make.bottom.equalTo(staticStackView.snp_bottom).offset(10)
         }
-
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

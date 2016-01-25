@@ -93,7 +93,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="lov-Hx-Wbs" kind="show" identifier="PushChannelDetail" id="Kbo-1M-svy"/>
+                                    <segue destination="fXW-sb-XBh" kind="show" identifier="PushChannelDetail" id="IdC-8i-CGj"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -141,6 +141,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXC-aA-gQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1651" y="-6"/>
+        </scene>
+        <!--Channel2 View Controller-->
+        <scene sceneID="Ngb-w3-sqD">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="fXW-sb-XBh" customClass="Channel2ViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wgN-Pu-tYl"/>
+                        <viewControllerLayoutGuide type="bottom" id="btW-WZ-Zbp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8PH-HP-qZ5">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="bmj-CX-Luk" kind="show" identifier="PushPieceDetail" id="CfM-gk-XSJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ror-1s-mST" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2572" y="-687"/>
         </scene>
         <!--Title-->
         <scene sceneID="zQL-Ko-t2b">
@@ -302,6 +322,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Kbo-1M-svy"/>
+        <segue reference="CfM-gk-XSJ"/>
     </inferredMetricsTieBreakers>
 </document>
