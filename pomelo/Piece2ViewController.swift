@@ -8,10 +8,12 @@
 
 import UIKit
 import YYText
+import SnapKit
 
 class Piece2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YYTextKeyboardObserver {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var addCommentView:AddCommentView!
+    var addCommentViewBottomConstraint: Constraint? = nil
     
     var piecePrototypeCell:PieceDetailCell!
     var commentPrototypeCell:CommentCell!
@@ -82,7 +84,7 @@ class Piece2ViewController: UIViewController, UITableViewDataSource, UITableView
                 self.tableView.reloadData()
             }
             addCommentView.snp_makeConstraints(closure: { (make) -> Void in
-                make.bottom.equalTo(self.view)
+                self.addCommentViewBottomConstraint = make.bottom.equalTo(self.view.snp_bottom).constraint
                 make.height.equalTo(40)
                 make.left.equalTo(0)
                 make.right.equalTo(self.view)
@@ -168,9 +170,8 @@ class Piece2ViewController: UIViewController, UITableViewDataSource, UITableView
     func keyboardChangedWithTransition(transition: YYTextKeyboardTransition) {
         UIView.animateWithDuration(transition.animationDuration) { () -> Void in
             let kbFrame = YYTextKeyboardManager.defaultManager().convertRect(transition.toFrame, toView: self.view)
-            var textFrame = self.addCommentView.frame
-            textFrame.origin.y = kbFrame.origin.y - textFrame.size.height
-            self.addCommentView.frame = textFrame
+            self.addCommentViewBottomConstraint?.updateOffset(kbFrame.origin.y - self.view.frame.size.height)
+            self.view.layoutIfNeeded()
         }
     }
     

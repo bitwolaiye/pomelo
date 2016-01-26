@@ -8,10 +8,12 @@
 
 import UIKit
 import YYText
+import SnapKit
 
 class Channel2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YYTextKeyboardObserver {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var addPieceView:AddPieceView!
+    var addPieceViewBottomConstraint: Constraint? = nil
     
     var prototypeCell:PieceListCell!
     var channel:Channel!
@@ -78,7 +80,7 @@ class Channel2ViewController: UIViewController, UITableViewDataSource, UITableVi
             self.view.addSubview(addPieceView)
             
             addPieceView.snp_makeConstraints(closure: { (make) -> Void in
-                make.bottom.equalTo(self.view)
+                self.addPieceViewBottomConstraint = make.bottom.equalTo(self.view.snp_bottom).constraint
                 make.height.equalTo(40)
                 make.left.equalTo(0)
                 make.right.equalTo(self.view)
@@ -149,12 +151,11 @@ class Channel2ViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func keyboardChangedWithTransition(transition: YYTextKeyboardTransition) {
-        
-        let kbFrame = YYTextKeyboardManager.defaultManager().convertRect(transition.toFrame, toView: self.view)
-        var textFrame = self.addPieceView.frame
-        textFrame.origin.y = kbFrame.origin.y - textFrame.size.height
-        self.addPieceView.frame = textFrame
-
+        UIView.animateWithDuration(transition.animationDuration) { () -> Void in
+            let kbFrame = YYTextKeyboardManager.defaultManager().convertRect(transition.toFrame, toView: self.view)
+            self.addPieceViewBottomConstraint?.updateOffset(kbFrame.origin.y - self.view.frame.size.height)
+            self.view.layoutIfNeeded()
+        }
     }
     /*
     // Override to support conditional editing of the table view.
