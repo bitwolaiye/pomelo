@@ -37,7 +37,7 @@ class BaseApi: NSObject {
         if token != nil {
             headers = ["token": token!]
         }
-        let request = Alamofire.request(.POST, url, parameters: parameters)
+        let request = Alamofire.request(.POST, url, headers: headers, parameters: parameters)
         request.responseJSON {
             response in
             if let value = response.result.value {

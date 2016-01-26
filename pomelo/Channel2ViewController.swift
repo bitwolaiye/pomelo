@@ -11,7 +11,7 @@ import YYText
 
 class Channel2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YYTextKeyboardObserver {
     @IBOutlet weak var tableView:UITableView!
-    @IBOutlet weak var pieceTextField:YYTextView!
+    @IBOutlet weak var addPieceView:AddPieceView!
     
     var prototypeCell:PieceListCell!
     var channel:Channel!
@@ -34,6 +34,7 @@ class Channel2ViewController: UIViewController, UITableViewDataSource, UITableVi
         if let selectedRow = self.tableView.indexPathForSelectedRow {
             self.tableView.deselectRowAtIndexPath(selectedRow, animated: false)
         }
+        self.addPieceView.channel = self.channel
     }
     
     override func viewDidLoad() {
@@ -70,20 +71,20 @@ class Channel2ViewController: UIViewController, UITableViewDataSource, UITableVi
             return tableView
             } ()
 
-        self.pieceTextField = {
-            let textField = YYTextView()
+        self.addPieceView = {
+            let addPieceView = AddPieceView()
             
-            self.view.addSubview(textField)
+            addPieceView.initSubviews()
+            self.view.addSubview(addPieceView)
             
-            textField.backgroundColor = UIColor.grayColor()
-            textField.snp_makeConstraints(closure: { (make) -> Void in
+            addPieceView.snp_makeConstraints(closure: { (make) -> Void in
                 make.bottom.equalTo(self.view)
                 make.height.equalTo(40)
                 make.left.equalTo(0)
                 make.right.equalTo(self.view)
             })
             
-            return textField
+            return addPieceView
             } ()
         
         
@@ -136,15 +137,11 @@ class Channel2ViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if self.pieceTextField.isFirstResponder() {
-            self.pieceTextField.resignFirstResponder()
-        }
+        self.addPieceView.endEditing(true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if self.pieceTextField.isFirstResponder() {
-            self.pieceTextField.resignFirstResponder()
-        }
+        self.addPieceView.endEditing(true)
         if (segue.identifier == "PushPieceDetail") {
             let controller = segue.destinationViewController as! Piece2ViewController
             controller.piece = self.pieces[self.tableView.indexPathForSelectedRow!.row]
@@ -154,9 +151,9 @@ class Channel2ViewController: UIViewController, UITableViewDataSource, UITableVi
     func keyboardChangedWithTransition(transition: YYTextKeyboardTransition) {
         
         let kbFrame = YYTextKeyboardManager.defaultManager().convertRect(transition.toFrame, toView: self.view)
-        var textFrame = self.pieceTextField.frame
+        var textFrame = self.addPieceView.frame
         textFrame.origin.y = kbFrame.origin.y - textFrame.size.height
-        self.pieceTextField.frame = textFrame
+        self.addPieceView.frame = textFrame
 
     }
     /*

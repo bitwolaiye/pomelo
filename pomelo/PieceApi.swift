@@ -23,9 +23,9 @@ class PieceApi: BaseApi {
         }
     }
     
-    func addPiece(channelId: Int, channelText: String, callback: (Int) -> Void) -> Void {
+    func addPiece(channelId: Int, pieceText: String, callback: (Int) -> Void) -> Void {
         let url = "/piece"
-        self.post(url, parameters: ["channel_id": channelId, "channel_text": channelText], callback: { (json) -> Void in
+        self.post(url, parameters: ["channel_id": channelId, "piece_text": pieceText], callback: { (json) -> Void in
             callback(json["piece_id"].int!)
             }) { (json) -> Void in
                 
