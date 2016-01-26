@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		306CF2C980B5598F3A9F4EDB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79377143674F87C3310F5498 /* Pods.framework */; };
-		DA132FE21C5623D9004938F4 /* Piece2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA132FE11C5623D9004938F4 /* Piece2ViewController.swift */; };
-		DA132FE41C562806004938F4 /* Channel2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA132FE31C562806004938F4 /* Channel2ViewController.swift */; };
+		DA132FE21C5623D9004938F4 /* PieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA132FE11C5623D9004938F4 /* PieceViewController.swift */; };
+		DA132FE41C562806004938F4 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA132FE31C562806004938F4 /* ChannelViewController.swift */; };
 		DA16506F1C5682B100B47683 /* AddPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16506E1C5682B100B47683 /* AddPieceView.swift */; };
 		DA1650711C5742E700B47683 /* AddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1650701C5742E700B47683 /* AddCommentView.swift */; };
 		DA662BD11C4157C3001D2855 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD01C4157C3001D2855 /* MainController.swift */; };
@@ -66,8 +66,8 @@
 		4303C0B3783024E7C66619A3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		79377143674F87C3310F5498 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B657D19CAFE63EEE4DB4FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		DA132FE11C5623D9004938F4 /* Piece2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Piece2ViewController.swift; sourceTree = "<group>"; };
-		DA132FE31C562806004938F4 /* Channel2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel2ViewController.swift; sourceTree = "<group>"; };
+		DA132FE11C5623D9004938F4 /* PieceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceViewController.swift; sourceTree = "<group>"; };
+		DA132FE31C562806004938F4 /* ChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		DA16506E1C5682B100B47683 /* AddPieceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPieceView.swift; sourceTree = "<group>"; };
 		DA1650701C5742E700B47683 /* AddCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommentView.swift; sourceTree = "<group>"; };
 		DA662BD01C4157C3001D2855 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -175,8 +175,8 @@
 				DA662BF01C42AD36001D2855 /* Piece1ViewController.swift */,
 				DAF71AC51C4F7F3700969691 /* RootController.swift */,
 				DAF71AC71C4F7F6B00969691 /* RegisterController.swift */,
-				DA132FE11C5623D9004938F4 /* Piece2ViewController.swift */,
-				DA132FE31C562806004938F4 /* Channel2ViewController.swift */,
+				DA132FE11C5623D9004938F4 /* PieceViewController.swift */,
+				DA132FE31C562806004938F4 /* ChannelViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -455,7 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA132FE21C5623D9004938F4 /* Piece2ViewController.swift in Sources */,
+				DA132FE21C5623D9004938F4 /* PieceViewController.swift in Sources */,
 				DA662BF31C42AE68001D2855 /* CommentCell.swift in Sources */,
 				DA662BF51C451CE5001D2855 /* PieceDetailCell.swift in Sources */,
 				DA662BDB1C41595B001D2855 /* Channel.swift in Sources */,
@@ -478,7 +478,7 @@
 				DA662BFB1C45F769001D2855 /* CommentApi.swift in Sources */,
 				DA662BDD1C41596E001D2855 /* Piece.swift in Sources */,
 				DA1650711C5742E700B47683 /* AddCommentView.swift in Sources */,
-				DA132FE41C562806004938F4 /* Channel2ViewController.swift in Sources */,
+				DA132FE41C562806004938F4 /* ChannelViewController.swift in Sources */,
 				DA662BDF1C415A2A001D2855 /* User.swift in Sources */,
 				DA662BD51C41583F001D2855 /* SuggestChannelTableViewController.swift in Sources */,
 				DA662BE71C424510001D2855 /* User+Api.swift in Sources */,

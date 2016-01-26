@@ -145,7 +145,7 @@
         <!--Channel2 View Controller-->
         <scene sceneID="Ngb-w3-sqD">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="fXW-sb-XBh" customClass="Channel2ViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="fXW-sb-XBh" customClass="ChannelViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wgN-Pu-tYl"/>
                         <viewControllerLayoutGuide type="bottom" id="btW-WZ-Zbp"/>
@@ -166,7 +166,7 @@
         <!--Piece2 View Controller-->
         <scene sceneID="JiN-og-m9V">
             <objects>
-                <viewController id="phS-Hd-ylh" customClass="Piece2ViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="phS-Hd-ylh" customClass="PieceViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Zg-5w-d8F"/>
                         <viewControllerLayoutGuide type="bottom" id="Cj6-jr-4MY"/>

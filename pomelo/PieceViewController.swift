@@ -1,5 +1,5 @@
 //
-//  Piece2ViewController.swift
+//  PieceViewController.swift
 //  pomelo
 //
 //  Created by zhouqi on 16/1/25.
@@ -10,7 +10,7 @@ import UIKit
 import YYText
 import SnapKit
 
-class Piece2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YYTextKeyboardObserver {
+class PieceViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YYTextKeyboardObserver {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var addCommentView:AddCommentView!
     var addCommentViewBottomConstraint: Constraint? = nil
@@ -21,7 +21,7 @@ class Piece2ViewController: UIViewController, UITableViewDataSource, UITableView
     var comments:[Comment]!
     
     func reloadDataFromApi() {
-        let selfController:Piece2ViewController = self
+        let selfController: PieceViewController = self
         CommentApi.sharedInstance.getCommentList(self.piece.pieceId, callback: { (comments: [Comment]) -> Void in
             selfController.comments = comments
             selfController.tableView.reloadData()

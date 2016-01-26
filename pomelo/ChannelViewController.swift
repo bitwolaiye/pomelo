@@ -1,5 +1,5 @@
 //
-//  Channel2ViewController.swift
+//  ChannelViewController.swift
 //  pomelo
 //
 //  Created by zhouqi on 16/1/25.
@@ -10,7 +10,7 @@ import UIKit
 import YYText
 import SnapKit
 
-class Channel2ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YYTextKeyboardObserver {
+class ChannelViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YYTextKeyboardObserver {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var addPieceView:AddPieceView!
     var addPieceViewBottomConstraint: Constraint? = nil
@@ -20,7 +20,7 @@ class Channel2ViewController: UIViewController, UITableViewDataSource, UITableVi
     var pieces:[Piece]!
     
     func reloadDataFromApi() {
-        let selfController:Channel2ViewController = self
+        let selfController: ChannelViewController = self
         PieceApi.sharedInstance.getChannelPieceList(self.channel.channelId, callback: { (pieces: [Piece]) -> Void in
             selfController.pieces = pieces
             selfController.tableView.reloadData()
@@ -145,7 +145,7 @@ class Channel2ViewController: UIViewController, UITableViewDataSource, UITableVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         self.addPieceView.endEditing(true)
         if (segue.identifier == "PushPieceDetail") {
-            let controller = segue.destinationViewController as! Piece2ViewController
+            let controller = segue.destinationViewController as! PieceViewController
             controller.piece = self.pieces[self.tableView.indexPathForSelectedRow!.row]
         }
     }

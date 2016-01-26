@@ -77,7 +77,7 @@ class FavorChannelTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "PushChannelDetail") {
-            let controller = segue.destinationViewController as! Channel2ViewController
+            let controller = segue.destinationViewController as! ChannelViewController
             let channel = self.channels[self.tableView.indexPathForSelectedRow!.item]
             controller.channel = channel
         }
