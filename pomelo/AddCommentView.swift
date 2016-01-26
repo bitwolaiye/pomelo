@@ -10,14 +10,15 @@ import UIKit
 import YYText
 
 class AddCommentView: UIView {
-    @IBOutlet weak var textView:YYTextView!
+    @IBOutlet weak var textView:UITextField!
     @IBOutlet weak var button:UIButton!
     
     var piece:Piece!
+    var callback:((Comment) -> Void)!
     
     func initSubviews() {
         textView = {
-            let textField = YYTextView()
+            let textField = UITextField()
             
             self.addSubview(textField)
             
@@ -52,8 +53,11 @@ class AddCommentView: UIView {
     }
     
     @IBAction func addComment(sender: AnyObject) {
-        CommentApi.sharedInstance.addComment(self.piece.pieceId, commentText: self.textView.text) { (commentId) -> Void in
-            
+        let comment = Comment(commentId: -1, commentText: self.textView.text!, commentTime: NSDate(), user: User.me)
+        self.endEditing(true)
+        CommentApi.sharedInstance.addComment(self.piece.pieceId, commentText: self.textView.text!) { (commentId) -> Void in
+            comment.commentId = commentId
+            self.callback(comment)
         }
     }
 

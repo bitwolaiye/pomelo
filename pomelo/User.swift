@@ -9,6 +9,8 @@
 import Foundation
 
 class User: NSObject {
+    static var me:User? = User.getSelfProfile()
+    
     var userId:Int = 0
     var userName:String = ""
     var userAvatar:String?
@@ -19,5 +21,16 @@ class User: NSObject {
         self.userName = userName
         self.userGender = userGender
         self.userAvatar = userAvatar
+    }
+    
+    static func getSelfProfile() -> User? {
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        if userDefault.objectForKey("token") != nil {
+            let userId = userDefault.integerForKey("user_id")
+            let userName:String = userDefault.objectForKey("user_name") as! String
+            return User(userId: userId, userName: userName, userGender: 0, userAvatar: nil)
+        } else {
+            return nil
+        }
     }
 }

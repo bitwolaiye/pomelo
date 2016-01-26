@@ -76,6 +76,11 @@ class Piece2ViewController: UIViewController, UITableViewDataSource, UITableView
             
             self.view.addSubview(addCommentView)
             addCommentView.initSubviews()
+            addCommentView.piece = self.piece
+            addCommentView.callback = { (comment) -> Void in
+                self.comments.insert(comment, atIndex: 0)
+                self.tableView.reloadData()
+            }
             addCommentView.snp_makeConstraints(closure: { (make) -> Void in
                 make.bottom.equalTo(self.view)
                 make.height.equalTo(40)
@@ -161,12 +166,12 @@ class Piece2ViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func keyboardChangedWithTransition(transition: YYTextKeyboardTransition) {
-        
-        let kbFrame = YYTextKeyboardManager.defaultManager().convertRect(transition.toFrame, toView: self.view)
-        var textFrame = self.addCommentView.frame
-        textFrame.origin.y = kbFrame.origin.y - textFrame.size.height
-        self.addCommentView.frame = textFrame
-        
+        UIView.animateWithDuration(transition.animationDuration) { () -> Void in
+            let kbFrame = YYTextKeyboardManager.defaultManager().convertRect(transition.toFrame, toView: self.view)
+            var textFrame = self.addCommentView.frame
+            textFrame.origin.y = kbFrame.origin.y - textFrame.size.height
+            self.addCommentView.frame = textFrame
+        }
     }
     
     /*
