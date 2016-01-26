@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ChannelViewController: UITableViewController {
+class Channel1ViewController: UITableViewController {
     var prototypeCell:PieceListCell!
     var channel:Channel!
     var pieces:[Piece]!
     
     func reloadDataFromApi() {
-        let selfController:ChannelViewController = self
+        let selfController: Channel1ViewController = self
         PieceApi.sharedInstance.getChannelPieceList(self.channel.channelId, callback: { (pieces: [Piece]) -> Void in
             selfController.pieces = pieces
             selfController.tableView.reloadData()
@@ -84,7 +84,7 @@ class ChannelViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "PushPieceDetail") {
-            let controller = segue.destinationViewController as! PieceViewController
+            let controller = segue.destinationViewController as! Piece1ViewController
             controller.piece = self.pieces[self.tableView.indexPathForSelectedRow!.row]
         }
     }

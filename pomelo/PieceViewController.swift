@@ -8,14 +8,14 @@
 
 import UIKit
 
-class PieceViewController: UITableViewController {
+class Piece1ViewController: UITableViewController {
     var piecePrototypeCell:PieceDetailCell!
     var commentPrototypeCell:CommentCell!
     var piece:Piece!
     var comments:[Comment]!
 
     func reloadDataFromApi() {
-        let selfController:PieceViewController = self
+        let selfController: Piece1ViewController = self
         CommentApi.sharedInstance.getCommentList(self.piece.pieceId, callback: { (comments: [Comment]) -> Void in
             selfController.comments = comments
             selfController.tableView.reloadData()

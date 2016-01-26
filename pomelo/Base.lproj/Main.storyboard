@@ -183,7 +183,7 @@
         <!--Title-->
         <scene sceneID="zQL-Ko-t2b">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="lov-Hx-Wbs" customClass="ChannelViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="lov-Hx-Wbs" customClass="Channel1ViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dt4-wt-1R3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,7 +219,7 @@
         <!--Piece View Controller-->
         <scene sceneID="bEl-do-Rk0">
             <objects>
-                <tableViewController id="bmj-CX-Luk" customClass="PieceViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="bmj-CX-Luk" customClass="Piece1ViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fa9-hr-euu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
