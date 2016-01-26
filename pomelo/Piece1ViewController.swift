@@ -1,39 +1,39 @@
 //
-//  ChannelViewController.swift
+//  Piece1ViewController.swift
 //  pomelo
 //
-//  Created by zhouqi on 16/1/9.
+//  Created by zhouqi on 16/1/10.
 //  Copyright © 2016年 zhouqi. All rights reserved.
 //
 
 import UIKit
 
-class Channel1ViewController: UITableViewController {
-    var prototypeCell:PieceListCell!
-    var channel:Channel!
-    var pieces:[Piece]!
-    
+class Piece1ViewController: UITableViewController {
+    var piecePrototypeCell:PieceDetailCell!
+    var commentPrototypeCell:CommentCell!
+    var piece:Piece!
+    var comments:[Comment]!
+
     func reloadDataFromApi() {
-        let selfController: Channel1ViewController = self
-        PieceApi.sharedInstance.getChannelPieceList(self.channel.channelId, callback: { (pieces: [Piece]) -> Void in
-            selfController.pieces = pieces
+        let selfController: Piece1ViewController = self
+        CommentApi.sharedInstance.getCommentList(self.piece.pieceId, callback: { (comments: [Comment]) -> Void in
+            selfController.comments = comments
             selfController.tableView.reloadData()
         })
     }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController!.navigationBar.translucent = false;
-
-        if (self.pieces == nil && self.channel != nil) {
+        
+        if (self.comments == nil) {
             self.reloadDataFromApi()
         }
-        if let selectedRow = self.tableView.indexPathForSelectedRow {
-            self.tableView.deselectRowAtIndexPath(selectedRow, animated: false)
-        }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tableView.registerClass(PieceDetailCell.classForCoder(), forCellReuseIdentifier: "PieceDetailCell")
+//        self.tableView.registerNib(UINib(nibName: "PieceDetailCell", bundle: nil), forCellReuseIdentifier: "PieceDetailCell")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,8 +43,9 @@ class Channel1ViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        prototypeCell = tableView.dequeueReusableCellWithIdentifier("PieceListCell") as! PieceListCell
+        tableView.allowsSelection = false
+        piecePrototypeCell = tableView.dequeueReusableCellWithIdentifier("PieceDetailCell") as! PieceDetailCell
+        commentPrototypeCell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,33 +62,55 @@ class Channel1ViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if (self.pieces != nil) {
-            return self.pieces.count
+        if self.comments != nil {
+            return self.comments.count + 1
         } else {
-            return 0
+            return 1
         }
+
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PieceListCell", forIndexPath: indexPath) as! PieceListCell
-        cell.piece = self.pieces[indexPath.row]
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let cell = self.prototypeCell
-        cell.piece = self.pieces[indexPath.row]
-        cell.layoutSubviews()
-        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-        return 1  + size.height;
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "PushPieceDetail") {
-            let controller = segue.destinationViewController as! Piece1ViewController
-            controller.piece = self.pieces[self.tableView.indexPathForSelectedRow!.row]
+        if (indexPath.row == 0) {
+            let cell = tableView.dequeueReusableCellWithIdentifier("PieceDetailCell", forIndexPath: indexPath) as! PieceDetailCell
+            cell.piece = self.piece
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentCell
+            cell.comment = self.comments[indexPath.row - 1]
+            // Configure the cell...
+            
+            return cell
         }
     }
+    
+//    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if indexPath.row == 0 {
+//            return 100
+//        } else {
+//            return 40
+//        }
+//    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            let cell = self.piecePrototypeCell
+            cell.piece = self.piece
+            cell.layoutSubviews()
+            let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+            return 1  + size.height;
+        } else {
+            let cell = self.commentPrototypeCell
+            cell.comment = self.comments[indexPath.row - 1]
+            cell.layoutSubviews()
+            let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+            return 1  + size.height;
+
+//            return 40
+        }
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

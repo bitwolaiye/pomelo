@@ -15,7 +15,7 @@
 		DA662BD11C4157C3001D2855 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD01C4157C3001D2855 /* MainController.swift */; };
 		DA662BD31C41582B001D2855 /* FavorChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD21C41582B001D2855 /* FavorChannelTableViewController.swift */; };
 		DA662BD51C41583F001D2855 /* SuggestChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD41C41583F001D2855 /* SuggestChannelTableViewController.swift */; };
-		DA662BD71C415886001D2855 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD61C415886001D2855 /* ChannelViewController.swift */; };
+		DA662BD71C415886001D2855 /* Channel1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD61C415886001D2855 /* Channel1ViewController.swift */; };
 		DA662BD91C4158A8001D2855 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD81C4158A8001D2855 /* ProfileViewController.swift */; };
 		DA662BDB1C41595B001D2855 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BDA1C41595B001D2855 /* Channel.swift */; };
 		DA662BDD1C41596E001D2855 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BDC1C41596E001D2855 /* Piece.swift */; };
@@ -28,7 +28,7 @@
 		DA662BEB1C42452C001D2855 /* Channel+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BEA1C42452C001D2855 /* Channel+Api.swift */; };
 		DA662BED1C425156001D2855 /* ChannelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BEC1C425156001D2855 /* ChannelListCell.swift */; };
 		DA662BEF1C4263FF001D2855 /* PieceListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BEE1C4263FF001D2855 /* PieceListCell.swift */; };
-		DA662BF11C42AD36001D2855 /* PieceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF01C42AD36001D2855 /* PieceViewController.swift */; };
+		DA662BF11C42AD36001D2855 /* Piece1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF01C42AD36001D2855 /* Piece1ViewController.swift */; };
 		DA662BF31C42AE68001D2855 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF21C42AE68001D2855 /* CommentCell.swift */; };
 		DA662BF51C451CE5001D2855 /* PieceDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF41C451CE5001D2855 /* PieceDetailCell.swift */; };
 		DA662BF71C452BC6001D2855 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BF61C452BC6001D2855 /* Comment.swift */; };
@@ -73,7 +73,7 @@
 		DA662BD01C4157C3001D2855 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		DA662BD21C41582B001D2855 /* FavorChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavorChannelTableViewController.swift; sourceTree = "<group>"; };
 		DA662BD41C41583F001D2855 /* SuggestChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestChannelTableViewController.swift; sourceTree = "<group>"; };
-		DA662BD61C415886001D2855 /* ChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
+		DA662BD61C415886001D2855 /* Channel1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel1ViewController.swift; sourceTree = "<group>"; };
 		DA662BD81C4158A8001D2855 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DA662BDA1C41595B001D2855 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		DA662BDC1C41596E001D2855 /* Piece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		DA662BEA1C42452C001D2855 /* Channel+Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Channel+Api.swift"; sourceTree = "<group>"; };
 		DA662BEC1C425156001D2855 /* ChannelListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListCell.swift; sourceTree = "<group>"; };
 		DA662BEE1C4263FF001D2855 /* PieceListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceListCell.swift; sourceTree = "<group>"; };
-		DA662BF01C42AD36001D2855 /* PieceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceViewController.swift; sourceTree = "<group>"; };
+		DA662BF01C42AD36001D2855 /* Piece1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Piece1ViewController.swift; sourceTree = "<group>"; };
 		DA662BF21C42AE68001D2855 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		DA662BF41C451CE5001D2855 /* PieceDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceDetailCell.swift; sourceTree = "<group>"; };
 		DA662BF61C452BC6001D2855 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -170,9 +170,9 @@
 				DA662BD01C4157C3001D2855 /* MainController.swift */,
 				DA662BD21C41582B001D2855 /* FavorChannelTableViewController.swift */,
 				DA662BD41C41583F001D2855 /* SuggestChannelTableViewController.swift */,
-				DA662BD61C415886001D2855 /* ChannelViewController.swift */,
+				DA662BD61C415886001D2855 /* Channel1ViewController.swift */,
 				DA662BD81C4158A8001D2855 /* ProfileViewController.swift */,
-				DA662BF01C42AD36001D2855 /* PieceViewController.swift */,
+				DA662BF01C42AD36001D2855 /* Piece1ViewController.swift */,
 				DAF71AC51C4F7F3700969691 /* RootController.swift */,
 				DAF71AC71C4F7F6B00969691 /* RegisterController.swift */,
 				DA132FE11C5623D9004938F4 /* Piece2ViewController.swift */,
@@ -464,7 +464,7 @@
 				DA662BD11C4157C3001D2855 /* MainController.swift in Sources */,
 				DAF71AC61C4F7F3700969691 /* RootController.swift in Sources */,
 				DAF71AC41C4E10EC00969691 /* BaseApi.swift in Sources */,
-				DA662BF11C42AD36001D2855 /* PieceViewController.swift in Sources */,
+				DA662BF11C42AD36001D2855 /* Piece1ViewController.swift in Sources */,
 				DA662BE31C415C08001D2855 /* ChannelApi.swift in Sources */,
 				DAEF0C6C1C3BAB81009E52FF /* AppDelegate.swift in Sources */,
 				DA662BE51C415C13001D2855 /* PieceApi.swift in Sources */,
@@ -482,7 +482,7 @@
 				DA662BDF1C415A2A001D2855 /* User.swift in Sources */,
 				DA662BD51C41583F001D2855 /* SuggestChannelTableViewController.swift in Sources */,
 				DA662BE71C424510001D2855 /* User+Api.swift in Sources */,
-				DA662BD71C415886001D2855 /* ChannelViewController.swift in Sources */,
+				DA662BD71C415886001D2855 /* Channel1ViewController.swift in Sources */,
 				DA662BF91C45F380001D2855 /* Comment+Api.swift in Sources */,
 				DA662BD91C4158A8001D2855 /* ProfileViewController.swift in Sources */,
 			);
