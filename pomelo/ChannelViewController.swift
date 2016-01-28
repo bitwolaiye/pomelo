@@ -13,6 +13,7 @@ import SnapKit
 class ChannelViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YYTextKeyboardObserver {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var addPieceView:AddPieceView!
+    @IBOutlet weak var channelNameLabel:UILabel!
     var addPieceViewBottomConstraint: Constraint? = nil
     
     var prototypeCell:PieceListCell!
@@ -29,7 +30,8 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController!.navigationBar.translucent = false;
-        
+//        self.navigationController?.navigationItem.title = self.channel.channelName
+        self.channelNameLabel.text = self.channel.channelName
         if (self.pieces == nil && self.channel != nil) {
             self.reloadDataFromApi()
         }
@@ -48,6 +50,66 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.hidesBottomBarWhenPushed = true
+        
+//        let iv = UIView(frame: CGRectMake(0, 0, 32, 32))
+//        iv.backgroundColor = UIColor.redColor()
+        self.navigationItem.titleView = {
+            let view = UIStackView(frame: CGRectMake(0, 0, 200, 32))
+            
+            view.axis = UILayoutConstraintAxis.Horizontal
+            view.alignment = UIStackViewAlignment.Center
+            view.distribution = UIStackViewDistribution.Fill
+
+            let spacerFront = UIView()
+            spacerFront.snp_makeConstraints(closure: { (make) -> Void in
+                make.height.equalTo(1)
+            })
+            view.addArrangedSubview(spacerFront)
+
+
+            let channelAvatar:UIImageView = {
+                let imageView = UIImageView()
+                
+                view.addArrangedSubview(imageView)
+                
+                imageView.backgroundColor = UIColor.redColor()
+                
+                imageView.snp_makeConstraints(closure: { (make) -> Void in
+                    make.width.height.equalTo(32)
+                    make.top.equalTo(view)
+                })
+                
+                return imageView
+            } ()
+            
+            let channelName:UILabel = {
+                let label = UILabel()
+                
+                view.addArrangedSubview(label)
+                label.backgroundColor = UIColor.grayColor()
+                label.snp_makeConstraints(closure: { (make) -> Void in
+                    make.height.equalTo(32)
+                    make.left.equalTo(channelAvatar.snp_right).offset(10)
+                    make.top.equalTo(view)
+//                    make.right.equalTo(view.snp_right)
+                })
+                
+                return label
+            } ()
+            
+            self.channelNameLabel = channelName
+            
+            let spacerBack = UIView()
+            view.addArrangedSubview(spacerBack)
+            spacerBack.snp_makeConstraints(closure: { (make) -> Void in
+                make.height.equalTo(1)
+                make.width.equalTo(spacerFront.snp_width)
+            })
+            
+            
+            return view
+            } ()
+        
         
         self.tableView = {
             let tableView = UITableView()
@@ -76,9 +138,13 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
         self.addPieceView = {
             let addPieceView = AddPieceView()
             
-            addPieceView.initSubviews()
             self.view.addSubview(addPieceView)
-            
+            addPieceView.initSubviews()
+            addPieceView.channel = self.channel
+            addPieceView.callback = {(piece) -> Void in
+                self.pieces.insert(piece, atIndex: 0)
+                self.tableView.reloadData()
+            }
             addPieceView.snp_makeConstraints(closure: { (make) -> Void in
                 self.addPieceViewBottomConstraint = make.bottom.equalTo(self.view.snp_bottom).constraint
                 make.height.equalTo(40)

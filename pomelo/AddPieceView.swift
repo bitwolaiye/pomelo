@@ -14,6 +14,7 @@ class AddPieceView: UIView {
     @IBOutlet weak var button:UIButton!
     
     var channel:Channel!
+    var callback:((Piece) -> Void)!
 
     func initSubviews() {
         textView = {
@@ -52,9 +53,15 @@ class AddPieceView: UIView {
     }
     
     @IBAction func addPiece(sender: AnyObject) {
-        PieceApi.sharedInstance.addPiece(self.channel.channelId, pieceText: self.textView.text) { (pieceId) -> Void in
-            
+        let piece = Piece(pieceId: -1, pieceText: self.textView.text!, pieceTime: NSDate(), user: User.me, channel: self.channel)
+        PieceApi.sharedInstance.addPiece(self.channel.channelId, pieceText: self.textView.text!) { (pieceId) -> Void in
+            piece.pieceId = pieceId
+            if self.callback != nil {
+                self.callback(piece)
+            }
         }
+        self.textView.text = nil
+        self.endEditing(true)
     }
     
     

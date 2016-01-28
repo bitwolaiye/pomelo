@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftDate
+import DateTools
 
 class PieceListCell: UITableViewCell {
     @IBOutlet weak var PieceTextLabel:UILabel!
@@ -23,7 +24,7 @@ class PieceListCell: UITableViewCell {
         didSet {
             self.PieceTextLabel.text = self.piece.pieceText
             self.userNameLabel.text = self.piece.user!.userName
-            self.pieceTimeLabel.text = self.piece.pieceTime.toRelativeString(abbreviated: false, maxUnits:2)
+            self.pieceTimeLabel.text = self.piece.pieceTime.timeAgoSinceNow()
             self.likeCntLabel.text = "\(0) Likes"
             self.commentCntLabel.text = "\(0) Comments"
         }

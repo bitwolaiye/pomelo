@@ -16,12 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        UserApi.sharedInstance.getProfile(2) { (User) -> Void in
-            
-        }
-        ChannelApi.sharedInstance.getFavorChannelList { (channels:[Channel]) -> Void in
-            print(channels)
-        }
+
         return true
     }
 

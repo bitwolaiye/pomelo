@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DateTools
 
 class PieceDetailCell: UITableViewCell {
     @IBOutlet weak var pieceTextLabel:UILabel!
@@ -21,11 +22,15 @@ class PieceDetailCell: UITableViewCell {
         didSet {
             self.pieceTextLabel.text = piece.pieceText
             self.userNameLabel.text = self.piece.user!.userName
-            self.pieceTimeLabel.text = self.piece.pieceTime.toRelativeString(abbreviated: false, maxUnits:2)
+//            self.pieceTimeLabel.text = self.piece.pieceTime.toRelativeString(abbreviated: false, maxUnits:2)
+            self.pieceTimeLabel.text = self.piece.pieceTime.timeAgoSinceNow()
             self.likeCntLabel.text = "\(0) Likes"
             self.commentCntLabel.text = "\(0) Comments"
 
         }
+    }
+    
+    @IBAction func like(sender: AnyObject) {
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -221,5 +226,7 @@ class PieceDetailCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
 
 }

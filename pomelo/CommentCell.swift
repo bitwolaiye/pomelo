@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DateTools
 
 class CommentCell: UITableViewCell {
     @IBOutlet weak var commentTextLabel:UILabel!
@@ -18,7 +19,7 @@ class CommentCell: UITableViewCell {
         didSet {
             self.commentTextLabel.text = comment.commentText
             self.userNameLabel.text = comment.user!.userName
-            self.commentTimeLabel.text = self.comment.commentTime.toRelativeString(abbreviated: false, maxUnits:2)
+            self.commentTimeLabel.text = self.comment.commentTime.timeAgoSinceNow()
         }
     }
     

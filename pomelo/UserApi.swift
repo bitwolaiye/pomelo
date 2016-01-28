@@ -55,5 +55,37 @@ class UserApi: BaseApi {
             failedCallback()
         }
     }
+    
+    func changeAvatar(userAvatar: String, callback:() -> Void, failedCallback: () -> Void) -> Void {
+        self.post("/user", parameters: ["user_avatar": userAvatar], callback: { (json) -> Void in
+            callback()
+            }) { (json) -> Void in
+                failedCallback()
+        }
+    }
+    
+    func upload(imageData: NSData, callback:(String) -> Void) {
+        let timestamp:Int = Int(NSDate().timeIntervalSince1970)
+        let userId = NSUserDefaults.standardUserDefaults().integerForKey("user_id")
+        let fileName = "\(userId)_\(timestamp).jpg"
+        Alamofire.upload(
+            .POST,
+            "https://zhouqi.work/pomelo/api/v1/upload",
+            multipartFormData: { multipartFormData in
+                multipartFormData.appendBodyPart(data: imageData, name: "image", fileName: fileName, mimeType: "JPG")
+            },
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .Success(let upload, _, _):
+                    upload.responseJSON { response in
+                        callback(fileName)
+                        debugPrint(response)
+                    }
+                case .Failure(let encodingError):
+                    print(encodingError)
+                }
+            }
+        )
+    }
 
 }

@@ -103,7 +103,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="3Bf-gG-A24">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pUh-8c-hFq"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pUh-8c-hFq">
+                            <connections>
+                                <action selector="selectImage:" destination="0Gw-oL-OEt" id="Irt-uT-ikx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Mi-kh-CyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -142,7 +146,7 @@
             </objects>
             <point key="canvasLocation" x="1651" y="-6"/>
         </scene>
-        <!--Channel2 View Controller-->
+        <!--Channel View Controller-->
         <scene sceneID="Ngb-w3-sqD">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="fXW-sb-XBh" customClass="ChannelViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
@@ -163,7 +167,7 @@
             </objects>
             <point key="canvasLocation" x="2572" y="-687"/>
         </scene>
-        <!--Piece2 View Controller-->
+        <!--Piece View Controller-->
         <scene sceneID="JiN-og-m9V">
             <objects>
                 <viewController id="phS-Hd-ylh" customClass="PieceViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,6 +176,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Cj6-jr-4MY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sfa-Jv-cmS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -216,7 +221,7 @@
             </objects>
             <point key="canvasLocation" x="2572" y="0.0"/>
         </scene>
-        <!--Piece View Controller-->
+        <!--Piece1 View Controller-->
         <scene sceneID="bEl-do-Rk0">
             <objects>
                 <tableViewController id="bmj-CX-Luk" customClass="Piece1ViewController" customModule="pomelo" customModuleProvider="target" sceneMemberID="viewController">

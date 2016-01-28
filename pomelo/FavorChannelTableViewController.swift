@@ -9,14 +9,16 @@
 import UIKit
 import MBProgressHUD
 import Toast
+import Alamofire
 
-class FavorChannelTableViewController: UITableViewController {
+class FavorChannelTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var channels:[Channel]!
+    
+    let imagePicker = UIImagePickerController()
     
     @IBAction func createChannel(sender: AnyObject) {
 //        let rootController = UIApplication.sharedApplication().delegate!.window!?.rootViewController as! RootController
 //        rootController.toRegister()
-        
     }
     
     func reloadDataFromApi() {
@@ -45,7 +47,19 @@ class FavorChannelTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.imagePicker.delegate = self
     }
+    
+    
+    @IBAction func selectImage(sender: AnyObject) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -138,4 +152,32 @@ class FavorChannelTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension FavorChannelTableViewController {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let imagePicked = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let imageExtenstion = info[UIImagePickerControllerReferenceURL]
+        // imageExtenstion will be "asset.JPG"/"asset.JPEG"/"asset.PNG"
+        // so we have to remove the asset. part
+        var imagePickedData : NSData = UIImageJPEGRepresentation(imagePicked, 1)!
+        if imageExtenstion?.string == "PNG" {
+            imagePickedData = UIImagePNGRepresentation(imagePicked)!
+        } else if imageExtenstion?.string == "JPG" || imageExtenstion?.string == "JPEG"  {
+            imagePickedData = UIImageJPEGRepresentation(imagePicked, 1)!
+        }
+        UserApi.sharedInstance.upload(imagePickedData) { (userAvatar) -> Void in
+            UserApi.sharedInstance.changeAvatar(userAvatar, callback: { () -> Void in
+                
+                }) { () -> Void in
+                    
+            }
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }

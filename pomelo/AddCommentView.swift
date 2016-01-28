@@ -54,12 +54,13 @@ class AddCommentView: UIView {
     
     @IBAction func addComment(sender: AnyObject) {
         let comment = Comment(commentId: -1, commentText: self.textView.text!, commentTime: NSDate(), user: User.me)
-        self.endEditing(true)
         CommentApi.sharedInstance.addComment(self.piece.pieceId, commentText: self.textView.text!) { (commentId) -> Void in
             comment.commentId = commentId
-            self.callback(comment)
+            if self.callback != nil {
+                self.callback(comment)
+            }            
         }
+        self.textView.text = nil
+        self.endEditing(true)
     }
-
-    
 }
