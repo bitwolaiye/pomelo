@@ -10,6 +10,7 @@ import UIKit
 import MBProgressHUD
 import Toast
 import Alamofire
+import Kingfisher
 
 class FavorChannelTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var channels:[Channel]!

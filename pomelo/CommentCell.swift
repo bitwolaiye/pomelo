@@ -23,6 +23,14 @@ class CommentCell: UITableViewCell {
         }
     }
     
+    func showImage() {
+        if self.comment.user != nil && self.comment.user?.userAvatarUrl != nil {
+            self.userAvatarImgView.kf_setImageWithURL(NSURL(string: (self.comment.user?.userAvatarThumbUrl)!)!)
+        } else {
+            self.userAvatarImgView.image = nil
+        }
+    }
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.initSubViews()
@@ -45,6 +53,8 @@ class CommentCell: UITableViewCell {
             imageView.layer.borderColor = UIColor.blackColor().CGColor
             imageView.layer.borderWidth = 1
             imageView.layer.cornerRadius = 20
+            imageView.clipsToBounds = true
+            
             imageView.snp_makeConstraints { (make) -> Void in
                 make.width.height.equalTo(40)
                 make.left.equalTo(self.contentView).offset(10)

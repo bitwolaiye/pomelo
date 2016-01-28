@@ -29,6 +29,8 @@ class ChannelListCell: UITableViewCell {
             imageView.layer.borderColor = UIColor.blackColor().CGColor
             imageView.layer.borderWidth = 1
             imageView.layer.cornerRadius = 20
+            imageView.clipsToBounds = true
+            
             imageView.snp_makeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(40)
                 make.height.equalTo(40)

@@ -15,7 +15,8 @@ class UserApi: BaseApi {
     
     func getSelfProfile(callback: (User) -> Void) -> Void {
         self.get("/user", callback: { (json) -> Void in
-            print("JSON: \(json)")
+            NSUserDefaults.standardUserDefaults().setObject(json["user_name"].string!, forKey: "user_name")
+            NSUserDefaults.standardUserDefaults().setObject(json["user_avatar"].string, forKey: "user_avatar")
             }) { (JSON) -> Void in
                 
         }

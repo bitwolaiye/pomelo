@@ -126,11 +126,13 @@ class PieceViewController: UIViewController, UITableViewDataSource, UITableViewD
         if (indexPath.row == 0) {
             let cell = tableView.dequeueReusableCellWithIdentifier("PieceDetailCell", forIndexPath: indexPath) as! PieceDetailCell
             cell.piece = self.piece
+            cell.showImage()
             return cell
             
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell", forIndexPath: indexPath) as! CommentCell
             cell.comment = self.comments[indexPath.row - 1]
+            cell.showImage()
             // Configure the cell...
             
             return cell

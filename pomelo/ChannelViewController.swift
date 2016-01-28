@@ -9,10 +9,12 @@
 import UIKit
 import YYText
 import SnapKit
+import Kingfisher
 
 class ChannelViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, YYTextKeyboardObserver {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var addPieceView:AddPieceView!
+    @IBOutlet weak var channelAvatarImageView:UIImageView!
     @IBOutlet weak var channelNameLabel:UILabel!
     var addPieceViewBottomConstraint: Constraint? = nil
     
@@ -39,6 +41,7 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
             self.tableView.deselectRowAtIndexPath(selectedRow, animated: false)
         }
         self.addPieceView.channel = self.channel
+        self.channelAvatarImageView.kf_setImageWithURL(NSURL(string: (User.me?.userAvatarThumbUrl)!)!)
     }
     
     override func viewDidLoad() {
@@ -73,6 +76,8 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
                 view.addArrangedSubview(imageView)
                 
                 imageView.backgroundColor = UIColor.redColor()
+                imageView.layer.cornerRadius = 16
+                imageView.clipsToBounds = true
                 
                 imageView.snp_makeConstraints(closure: { (make) -> Void in
                     make.width.height.equalTo(32)
@@ -81,15 +86,24 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
                 
                 return imageView
             } ()
+            self.channelAvatarImageView = channelAvatar
+            
+            let spacerMid = UIView()
+            spacerMid.snp_makeConstraints(closure: { (make) -> Void in
+                make.height.equalTo(1)
+                make.width.equalTo(10)
+            })
+            view.addArrangedSubview(spacerMid)
+
             
             let channelName:UILabel = {
                 let label = UILabel()
                 
                 view.addArrangedSubview(label)
-                label.backgroundColor = UIColor.grayColor()
+//                label.backgroundColor = UIColor.grayColor()
                 label.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(32)
-                    make.left.equalTo(channelAvatar.snp_right).offset(10)
+//                    make.left.equalTo(channelAvatar.snp_right).offset(10)
                     make.top.equalTo(view)
 //                    make.right.equalTo(view.snp_right)
                 })
@@ -189,6 +203,7 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PieceListCell", forIndexPath: indexPath) as! PieceListCell
         cell.piece = self.pieces[indexPath.row]
+        cell.showImage()
         return cell
     }
     

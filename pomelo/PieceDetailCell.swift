@@ -30,6 +30,14 @@ class PieceDetailCell: UITableViewCell {
         }
     }
     
+    func showImage() {
+        if self.piece.user != nil && self.piece.user?.userAvatarUrl != nil {
+            self.userAvatarImgView.kf_setImageWithURL(NSURL(string: (self.piece.user?.userAvatarThumbUrl)!)!)
+        } else {
+            self.userAvatarImgView.image = nil
+        }
+    }
+    
     @IBAction func like(sender: AnyObject) {
     }
     
@@ -67,6 +75,8 @@ class PieceDetailCell: UITableViewCell {
             imageView.layer.borderColor = UIColor.blackColor().CGColor
             imageView.layer.borderWidth = 1
             imageView.layer.cornerRadius = 20
+            imageView.clipsToBounds = true
+            
             imageView.snp_makeConstraints { (make) -> Void in
                 make.width.height.equalTo(40)
                 make.left.equalTo(self.contentView.snp_left).offset(10)

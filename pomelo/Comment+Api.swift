@@ -14,7 +14,7 @@ extension Comment {
     static func load_array(array: Array<JSON>) -> [Comment] {
         var comments = [Comment]()
         for each:JSON in array {
-            let user = User(userId: each["user_id"].int!, userName: each["user_name"].string!, userGender: each["user_gender"].int!, userAvatar: nil)
+            let user = User(userId: each["user_id"].int!, userName: each["user_name"].string!, userGender: each["user_gender"].int!, userAvatar: each["user_avatar"].string)
             comments.append(Comment(commentId: each["comment_id"].int!, commentText: each["comment_text"].string!, commentTime: each["comment_time"].string!.toDate(DateFormat.ISO8601)!, user: user))
         }
         return comments

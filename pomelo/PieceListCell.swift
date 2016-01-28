@@ -9,9 +9,10 @@
 import UIKit
 import SwiftDate
 import DateTools
+import Kingfisher
 
 class PieceListCell: UITableViewCell {
-    @IBOutlet weak var PieceTextLabel:UILabel!
+    @IBOutlet weak var pieceTextLabel:UILabel!
     @IBOutlet weak var userNameLabel:UILabel!
     @IBOutlet weak var userAvatarImgView:UIImageView!
     @IBOutlet weak var pieceTimeLabel:UILabel!
@@ -22,11 +23,19 @@ class PieceListCell: UITableViewCell {
     
     var piece:Piece! {
         didSet {
-            self.PieceTextLabel.text = self.piece.pieceText
+            self.pieceTextLabel.text = self.piece.pieceText
             self.userNameLabel.text = self.piece.user!.userName
             self.pieceTimeLabel.text = self.piece.pieceTime.timeAgoSinceNow()
             self.likeCntLabel.text = "\(0) Likes"
             self.commentCntLabel.text = "\(0) Comments"
+        }
+    }
+    
+    func showImage() {
+        if self.piece.user != nil && self.piece.user?.userAvatarUrl != nil {
+            self.userAvatarImgView.kf_setImageWithURL(NSURL(string: (self.piece.user?.userAvatarThumbUrl)!)!)
+        } else {
+            self.userAvatarImgView.image = nil
         }
     }
     
@@ -53,7 +62,7 @@ class PieceListCell: UITableViewCell {
     func initSubViews() {
         let PieceTextLabel = UILabel()
         self.contentView.addSubview(PieceTextLabel)
-        self.PieceTextLabel = PieceTextLabel
+        self.pieceTextLabel = PieceTextLabel
         
         PieceTextLabel.font = UIFont.systemFontOfSize(14)
         PieceTextLabel.numberOfLines = 0
@@ -70,10 +79,12 @@ class PieceListCell: UITableViewCell {
             imageView.layer.borderColor = UIColor.blackColor().CGColor
             imageView.layer.borderWidth = 1
             imageView.layer.cornerRadius = 20
+            imageView.clipsToBounds = true
+            
             imageView.snp_makeConstraints { (make) -> Void in
                 make.width.height.equalTo(40)
                 make.left.equalTo(self.contentView.snp_left).offset(10)
-                make.top.equalTo(self.PieceTextLabel.snp_bottom).offset(10)
+                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(10)
             }
             
             return imageView
@@ -87,7 +98,7 @@ class PieceListCell: UITableViewCell {
             label.font = UIFont.systemFontOfSize(14)
             label.snp_makeConstraints(closure: { (make) -> Void in
                 make.left.equalTo(userAvatarImgView.snp_right).offset(10)
-                make.top.equalTo(self.PieceTextLabel.snp_bottom).offset(10)
+                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(10)
             })
             
             return label
@@ -101,7 +112,7 @@ class PieceListCell: UITableViewCell {
             label.font = UIFont.systemFontOfSize(14)
             label.snp_makeConstraints(closure: { (make) -> Void in
                 make.right.equalTo(self.contentView.snp_right).offset(-10)
-                make.top.equalTo(self.PieceTextLabel.snp_bottom).offset(10)
+                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(10)
             })
             
             return label

@@ -13,14 +13,34 @@ class User: NSObject {
     
     var userId:Int = 0
     var userName:String = ""
-    var userAvatar:String?
+    var userAvatar:String? {
+        didSet {
+            if userAvatar == nil {
+                userAvatarUrl = nil
+                userAvatarThumbUrl = nil
+            } else {
+                userAvatarUrl = "https://zhouqi.work/pomelo/avatar/\(userAvatar!)"
+                userAvatarThumbUrl = "https://zhouqi.work/pomelo/avatar/thumb/\(userAvatar!)"
+            }
+        }
+    }
+    var userAvatarUrl:String?
+    var userAvatarThumbUrl:String?
     var userGender:Int = 0
+    
     
     init(userId: Int, userName: String, userGender: Int, userAvatar: String?) {
         self.userId = userId
         self.userName = userName
         self.userGender = userGender
         self.userAvatar = userAvatar
+        if userAvatar == nil {
+            userAvatarUrl = nil
+        } else {
+            userAvatarUrl = "https://zhouqi.work/pomelo/avatar/\(userAvatar!)"
+            userAvatarThumbUrl = "https://zhouqi.work/pomelo/avatar/thumb/\(userAvatar!)"
+        }
+
     }
     
     static func getSelfProfile() -> User? {
@@ -28,7 +48,8 @@ class User: NSObject {
         if userDefault.objectForKey("token") != nil {
             let userId = userDefault.integerForKey("user_id")
             let userName:String = userDefault.objectForKey("user_name") as! String
-            return User(userId: userId, userName: userName, userGender: 0, userAvatar: nil)
+            let userAvatar:String? = userDefault.objectForKey("user_avatar") as? String
+            return User(userId: userId, userName: userName, userGender: 0, userAvatar: userAvatar)
         } else {
             return nil
         }
