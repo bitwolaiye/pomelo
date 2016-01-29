@@ -59,13 +59,14 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
 //        let iv = UIView(frame: CGRectMake(0, 0, 32, 32))
 //        iv.backgroundColor = UIColor.redColor()
         self.navigationItem.titleView = {
-            let view = UIStackView(frame: CGRectMake(0, 0, 200, 32))
+            let view = UIStackView(frame: CGRectMake(0, 0, 170, 32))
             
             view.axis = UILayoutConstraintAxis.Horizontal
             view.alignment = UIStackViewAlignment.Center
             view.distribution = UIStackViewDistribution.Fill
 
             let spacerFront = UIView()
+            spacerFront.backgroundColor = UIColor.grayColor()
             spacerFront.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(1)
             })
@@ -91,6 +92,7 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
             self.channelAvatarImageView = channelAvatar
             
             let spacerMid = UIView()
+            spacerMid.backgroundColor = UIColor.grayColor()
             spacerMid.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(1)
                 make.width.equalTo(10)
@@ -102,7 +104,7 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
                 let label = UILabel()
                 
                 view.addArrangedSubview(label)
-//                label.backgroundColor = UIColor.grayColor()
+                label.backgroundColor = UIColor.grayColor()
                 label.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(32)
 //                    make.left.equalTo(channelAvatar.snp_right).offset(10)
@@ -116,6 +118,7 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
             self.channelNameLabel = channelName
             
             let spacerBack = UIView()
+            spacerBack.backgroundColor = UIColor.grayColor()
             view.addArrangedSubview(spacerBack)
             spacerBack.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(1)

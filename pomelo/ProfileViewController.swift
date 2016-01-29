@@ -23,6 +23,8 @@ class ProfileViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableView.registerClass(ProfileCell.self, forCellReuseIdentifier: "ProfileCell")
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -30,6 +32,9 @@ class ProfileViewController: UITableViewController {
         UserApi.sharedInstance.getSelfProfile { (user) -> Void in
             
         }
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,23 +46,40 @@ class ProfileViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ProfileCell", forIndexPath: indexPath) as! ProfileCell
+            cell.user = User.me
 
-        // Configure the cell...
-
-        return cell
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
-    */
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath == 0 {
+            return 100
+        } else {
+            return 40
+        }
+    }
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath == 0 {
+            return 100
+        } else {
+            return 40
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
