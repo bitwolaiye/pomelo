@@ -19,6 +19,10 @@ class ChannelListCell: UITableViewCell {
             self.channelNameLabel.text = self.channel.channelName
         }
     }
+    
+    func showImage() {
+        self.channelAvatarImage.load(self.channel.channelAvatarThumbUrl)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +34,7 @@ class ChannelListCell: UITableViewCell {
             imageView.layer.borderWidth = 1
             imageView.layer.cornerRadius = 20
             imageView.clipsToBounds = true
-            
+
             imageView.snp_makeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(40)
                 make.height.equalTo(40)

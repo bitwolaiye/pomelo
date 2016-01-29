@@ -54,11 +54,29 @@ class FavorChannelTableViewController: UITableViewController, UIImagePickerContr
     
     @IBAction func selectImage(sender: AnyObject) {
         imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
+//        imagePicker.sourceType = .PhotoLibrary
         
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func useCamera(sender: AnyObject) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(
+            UIImagePickerControllerSourceType.Camera) {
+                
+                let imagePicker = UIImagePickerController()
+                
+                imagePicker.delegate = self
+                imagePicker.sourceType =
+                    UIImagePickerControllerSourceType.Camera
+//                imagePicker.mediaTypes = [kUTTypeImage as NSString]
+                imagePicker.allowsEditing = false
+                
+                self.presentViewController(imagePicker, animated: true, 
+                    completion: nil)
+//                newMedia = true
+        }
+    }
     
     
 
@@ -87,6 +105,7 @@ class FavorChannelTableViewController: UITableViewController, UIImagePickerContr
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: ChannelListCell = tableView.dequeueReusableCellWithIdentifier("ChannelListCell", forIndexPath: indexPath) as! ChannelListCell
         cell.channel = self.channels[indexPath.row]
+        cell.showImage()
         return cell
     }
     
@@ -165,7 +184,8 @@ extension FavorChannelTableViewController {
         let imageExtenstion = info[UIImagePickerControllerReferenceURL]
         // imageExtenstion will be "asset.JPG"/"asset.JPEG"/"asset.PNG"
         // so we have to remove the asset. part
-        var imagePickedData : NSData = UIImageJPEGRepresentation(imagePicked, 1)!
+        let normalizedImage = imagePicked.normalizedImage()
+        var imagePickedData : NSData = UIImageJPEGRepresentation(normalizedImage, 1)!
         if imageExtenstion?.string == "PNG" {
             imagePickedData = UIImagePNGRepresentation(imagePicked)!
         } else if imageExtenstion?.string == "JPG" || imageExtenstion?.string == "JPEG"  {

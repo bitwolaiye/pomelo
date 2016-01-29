@@ -41,7 +41,9 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
             self.tableView.deselectRowAtIndexPath(selectedRow, animated: false)
         }
         self.addPieceView.channel = self.channel
-        self.channelAvatarImageView.kf_setImageWithURL(NSURL(string: (User.me?.userAvatarThumbUrl)!)!)
+//        self.channelAvatarImageView.kf_setImageWithURL(NSURL(string: (User.me?.userAvatarThumbUrl)!)!)
+//        self.channelAvatarImageView.image = UIImage(named: "pomelo_1")
+        self.channelAvatarImageView.load(self.channel.channelAvatarThumbUrl)
     }
     
     override func viewDidLoad() {

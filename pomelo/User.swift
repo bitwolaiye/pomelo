@@ -10,18 +10,12 @@ import Foundation
 
 class User: NSObject {
     static var me:User? = User.getSelfProfile()
-    
+
     var userId:Int = 0
     var userName:String = ""
     var userAvatar:String? {
         didSet {
-            if userAvatar == nil {
-                userAvatarUrl = nil
-                userAvatarThumbUrl = nil
-            } else {
-                userAvatarUrl = "https://zhouqi.work/pomelo/avatar/\(userAvatar!)"
-                userAvatarThumbUrl = "https://zhouqi.work/pomelo/avatar/thumb/\(userAvatar!)"
-            }
+            updateUrl()
         }
     }
     var userAvatarUrl:String?
@@ -30,17 +24,22 @@ class User: NSObject {
     
     
     init(userId: Int, userName: String, userGender: Int, userAvatar: String?) {
+        super.init()
         self.userId = userId
         self.userName = userName
         self.userGender = userGender
         self.userAvatar = userAvatar
+        self.updateUrl()
+    }
+    
+    func updateUrl() -> Void {
         if userAvatar == nil {
             userAvatarUrl = nil
+            userAvatarThumbUrl = nil
         } else {
             userAvatarUrl = "https://zhouqi.work/pomelo/avatar/\(userAvatar!)"
             userAvatarThumbUrl = "https://zhouqi.work/pomelo/avatar/thumb/\(userAvatar!)"
         }
-
     }
     
     static func getSelfProfile() -> User? {

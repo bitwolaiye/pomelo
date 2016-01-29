@@ -17,6 +17,8 @@ class UserApi: BaseApi {
         self.get("/user", callback: { (json) -> Void in
             NSUserDefaults.standardUserDefaults().setObject(json["user_name"].string!, forKey: "user_name")
             NSUserDefaults.standardUserDefaults().setObject(json["user_avatar"].string, forKey: "user_avatar")
+            User.me?.userName = json["user_name"].string!
+            User.me?.userAvatar = json["user_avatar"].string
             }) { (JSON) -> Void in
                 
         }
@@ -59,6 +61,8 @@ class UserApi: BaseApi {
     
     func changeAvatar(userAvatar: String, callback:() -> Void, failedCallback: () -> Void) -> Void {
         self.post("/user", parameters: ["user_avatar": userAvatar], callback: { (json) -> Void in
+            NSUserDefaults.standardUserDefaults().setObject(userAvatar, forKey: "user_avatar")
+            User.me?.userAvatar = userAvatar
             callback()
             }) { (json) -> Void in
                 failedCallback()

@@ -105,7 +105,7 @@
                     <navigationItem key="navigationItem" id="3Bf-gG-A24">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pUh-8c-hFq">
                             <connections>
-                                <action selector="selectImage:" destination="0Gw-oL-OEt" id="Irt-uT-ikx"/>
+                                <action selector="useCamera:" destination="0Gw-oL-OEt" id="EFA-Hf-z81"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

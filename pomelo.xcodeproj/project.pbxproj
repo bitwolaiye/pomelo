@@ -12,6 +12,8 @@
 		DA132FE41C562806004938F4 /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA132FE31C562806004938F4 /* ChannelViewController.swift */; };
 		DA16506F1C5682B100B47683 /* AddPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16506E1C5682B100B47683 /* AddPieceView.swift */; };
 		DA1650711C5742E700B47683 /* AddCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1650701C5742E700B47683 /* AddCommentView.swift */; };
+		DA1650731C5B189300B47683 /* UIImage+Normalized.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1650721C5B189300B47683 /* UIImage+Normalized.swift */; };
+		DA1650761C5B3CB600B47683 /* UIImageView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1650751C5B3CB600B47683 /* UIImageView+Load.swift */; };
 		DA662BD11C4157C3001D2855 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD01C4157C3001D2855 /* MainController.swift */; };
 		DA662BD31C41582B001D2855 /* FavorChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD21C41582B001D2855 /* FavorChannelTableViewController.swift */; };
 		DA662BD51C41583F001D2855 /* SuggestChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA662BD41C41583F001D2855 /* SuggestChannelTableViewController.swift */; };
@@ -70,6 +72,8 @@
 		DA132FE31C562806004938F4 /* ChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		DA16506E1C5682B100B47683 /* AddPieceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPieceView.swift; sourceTree = "<group>"; };
 		DA1650701C5742E700B47683 /* AddCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommentView.swift; sourceTree = "<group>"; };
+		DA1650721C5B189300B47683 /* UIImage+Normalized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Normalized.swift"; sourceTree = "<group>"; };
+		DA1650751C5B3CB600B47683 /* UIImageView+Load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Load.swift"; sourceTree = "<group>"; };
 		DA662BD01C4157C3001D2855 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		DA662BD21C41582B001D2855 /* FavorChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavorChannelTableViewController.swift; sourceTree = "<group>"; };
 		DA662BD41C41583F001D2855 /* SuggestChannelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestChannelTableViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		DA1650741C5B3C9100B47683 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DA1650721C5B189300B47683 /* UIImage+Normalized.swift */,
+				DA1650751C5B3CB600B47683 /* UIImageView+Load.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		DA662BCC1C3BC595001D2855 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +246,7 @@
 		DAEF0C6A1C3BAB81009E52FF /* pomelo */ = {
 			isa = PBXGroup;
 			children = (
+				DA1650741C5B3C9100B47683 /* Utils */,
 				DA16506D1C56828B00B47683 /* Views */,
 				DA662BCF1C3BC7A2001D2855 /* Apis */,
 				DA662BCE1C3BC5AE001D2855 /* Cells */,
@@ -479,9 +493,11 @@
 				DA662BDD1C41596E001D2855 /* Piece.swift in Sources */,
 				DA1650711C5742E700B47683 /* AddCommentView.swift in Sources */,
 				DA132FE41C562806004938F4 /* ChannelViewController.swift in Sources */,
+				DA1650761C5B3CB600B47683 /* UIImageView+Load.swift in Sources */,
 				DA662BDF1C415A2A001D2855 /* User.swift in Sources */,
 				DA662BD51C41583F001D2855 /* SuggestChannelTableViewController.swift in Sources */,
 				DA662BE71C424510001D2855 /* User+Api.swift in Sources */,
+				DA1650731C5B189300B47683 /* UIImage+Normalized.swift in Sources */,
 				DA662BD71C415886001D2855 /* Channel1ViewController.swift in Sources */,
 				DA662BF91C45F380001D2855 /* Comment+Api.swift in Sources */,
 				DA662BD91C4158A8001D2855 /* ProfileViewController.swift in Sources */,
