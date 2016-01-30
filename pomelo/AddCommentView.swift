@@ -17,17 +17,32 @@ class AddCommentView: UIView {
     var callback:((Comment) -> Void)!
     
     func initSubviews() {
+        let borderView:UIView = {
+            let view = UIView()
+            
+            self.addSubview(view)
+            view.backgroundColor = UIColor.grayColor()
+            view.snp_makeConstraints(closure: { (make) -> Void in
+                make.left.top.equalTo(0)
+                make.right.equalTo(self)
+                make.height.equalTo(1)
+            })
+            
+            return view
+        } ()
+
         textView = {
             let textField = UITextField()
             
             self.addSubview(textField)
             
-            textField.backgroundColor = UIColor.grayColor()
+            textField.font = UIFont.systemFontOfSize(20)
+//            textField.backgroundColor = UIColor.grayColor()
             textField.snp_makeConstraints(closure: { (make) -> Void in
                 make.bottom.equalTo(self)
                 make.height.equalTo(40)
-                make.left.equalTo(0)
-                make.right.equalTo(self).offset(-50)
+                make.left.equalTo(5)
+                make.right.equalTo(self).offset(-55)
             })
             
             return textField
@@ -38,7 +53,8 @@ class AddCommentView: UIView {
             
             self.addSubview(button)
             
-            button.backgroundColor = UIColor.redColor()
+//            button.backgroundColor = UIColor.redColor()
+            button.setTitle("评论", forState: UIControlState.Normal)
             button.snp_makeConstraints(closure: { (make) -> Void in
                 make.bottom.equalTo(self)
                 make.height.equalTo(40)

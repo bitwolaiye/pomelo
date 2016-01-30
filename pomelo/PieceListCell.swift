@@ -60,14 +60,14 @@ class PieceListCell: UITableViewCell {
     }
     
     func initSubViews() {
-        let PieceTextLabel = UILabel()
-        self.contentView.addSubview(PieceTextLabel)
-        self.pieceTextLabel = PieceTextLabel
+        let pieceTextLabel = UILabel()
+        self.contentView.addSubview(pieceTextLabel)
+        self.pieceTextLabel = pieceTextLabel
         
-        PieceTextLabel.font = UIFont.systemFontOfSize(14)
-        PieceTextLabel.numberOfLines = 0
-        PieceTextLabel.lineBreakMode = NSLineBreakMode.ByCharWrapping
-        PieceTextLabel.snp_makeConstraints(closure: { (make) -> Void in
+        pieceTextLabel.font = UIFont.systemFontOfSize(14)
+        pieceTextLabel.numberOfLines = 0
+        pieceTextLabel.lineBreakMode = NSLineBreakMode.ByCharWrapping
+        pieceTextLabel.snp_makeConstraints(closure: { (make) -> Void in
             make.left.equalTo(self.contentView).offset(10)
             make.right.equalTo(self.contentView).offset(-10)
             make.top.equalTo(self.contentView.snp_top).offset(10)
@@ -186,15 +186,27 @@ class PieceListCell: UITableViewCell {
                 })
                 
                 self.likeBtn = {
-                    let button = UIButton(type: UIButtonType.System)
+                    let button = UIButton()
                     
                     view.addSubview(button)
-                    
                     button.addTarget(self, action: "like:", forControlEvents: UIControlEvents.TouchUpInside)
-                    button.backgroundColor = UIColor.redColor()
+//                    button.backgroundColor = UIColor.redColor()
                     button.snp_makeConstraints(closure: { (make) -> Void in
                         make.center.equalTo(view.snp_center)
                     })
+                    
+                    var icon: UIImageView = {
+                        let imageView = UIImageView()
+                        
+                        button.addSubview(imageView)
+                        imageView.image = UIImage(named: "like")
+                        imageView.snp_makeConstraints(closure: { (make) -> Void in
+                            make.center.equalTo(button)
+                            make.width.height.equalTo(30)
+                        })
+                        
+                        return imageView
+                    } ()
                     
                     return button
                     } ()

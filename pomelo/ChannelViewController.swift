@@ -66,7 +66,7 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
             view.distribution = UIStackViewDistribution.Fill
 
             let spacerFront = UIView()
-            spacerFront.backgroundColor = UIColor.grayColor()
+//            spacerFront.backgroundColor = UIColor.grayColor()
             spacerFront.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(1)
             })
@@ -79,6 +79,8 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
                 view.addArrangedSubview(imageView)
                 
                 imageView.backgroundColor = UIColor.redColor()
+                imageView.layer.borderColor = UIColor.blackColor().CGColor
+                imageView.layer.borderWidth = 1
                 imageView.layer.cornerRadius = 16
                 imageView.clipsToBounds = true
                 
@@ -92,7 +94,7 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
             self.channelAvatarImageView = channelAvatar
             
             let spacerMid = UIView()
-            spacerMid.backgroundColor = UIColor.grayColor()
+//            spacerMid.backgroundColor = UIColor.grayColor()
             spacerMid.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(1)
                 make.width.equalTo(10)
@@ -104,7 +106,7 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
                 let label = UILabel()
                 
                 view.addArrangedSubview(label)
-                label.backgroundColor = UIColor.grayColor()
+//                label.backgroundColor = UIColor.grayColor()
                 label.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(32)
 //                    make.left.equalTo(channelAvatar.snp_right).offset(10)
@@ -118,7 +120,7 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
             self.channelNameLabel = channelName
             
             let spacerBack = UIView()
-            spacerBack.backgroundColor = UIColor.grayColor()
+//            spacerBack.backgroundColor = UIColor.grayColor()
             view.addArrangedSubview(spacerBack)
             spacerBack.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(1)

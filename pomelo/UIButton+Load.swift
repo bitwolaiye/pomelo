@@ -10,7 +10,8 @@ import UIKit
 
 extension UIButton {
     func load(url:String?) -> Void {
-        if let url2:String = url! {
+        if url != nil {
+            let url2:String = url!
             let array = url2.characters.split{$0 == "/"}.map(String.init)
             let last = array.last!
             if ["pomelo_1", "pomelo_2", "pomelo_3"].contains(last) {

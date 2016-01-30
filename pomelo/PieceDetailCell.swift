@@ -182,15 +182,28 @@ class PieceDetailCell: UITableViewCell {
                 })
                 
                 self.likeBtn = {
-                    let button = UIButton(type: UIButtonType.System)
+                    let button = UIButton()
                     
                     view.addSubview(button)
-                    
+//                    button.setImage(UIImage(named: "like"), forState: UIControlState.Normal)
                     button.addTarget(self, action: "like:", forControlEvents: UIControlEvents.TouchUpInside)
-                    button.backgroundColor = UIColor.redColor()
+//                    button.backgroundColor = UIColor.redColor()
                     button.snp_makeConstraints(closure: { (make) -> Void in
                         make.center.equalTo(view.snp_center)
                     })
+                    
+                    var icon: UIImageView = {
+                        let imageView = UIImageView()
+                        
+                        button.addSubview(imageView)
+                        imageView.image = UIImage(named: "like")
+                        imageView.snp_makeConstraints(closure: { (make) -> Void in
+                            make.center.equalTo(button)
+                            make.width.height.equalTo(30)
+                        })
+                        
+                        return imageView
+                    } ()
                     
                     return button
                     } ()
