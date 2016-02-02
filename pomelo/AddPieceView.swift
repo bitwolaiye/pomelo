@@ -9,7 +9,7 @@
 import UIKit
 import YYText
 
-class AddPieceView: UIView {
+class AddPieceView: UIView, YYTextViewDelegate {
     @IBOutlet weak var textView:YYTextView!
     @IBOutlet weak var button:UIButton!
     
@@ -21,7 +21,7 @@ class AddPieceView: UIView {
             let view = UIView()
             
             self.addSubview(view)
-            view.backgroundColor = UIColor.grayColor()
+            view.backgroundColor = UIColor.cellBorderColor()
             view.snp_makeConstraints(closure: { (make) -> Void in
                 make.left.top.equalTo(0)
                 make.right.equalTo(self)
@@ -35,13 +35,16 @@ class AddPieceView: UIView {
             let textField = YYTextView()
             
             self.addSubview(textField)
-            textField.font = UIFont.systemFontOfSize(20)
-//            textField.backgroundColor = UIColor.grayColor()
+            textField.font = UIFont.systemFontOfSize(UIConstant.textViewFontSize)
+            textField.delegate = self
+            textField.backgroundColor = UIColor.textBackgroundColor()
+            textField.placeholderText = "say something"
+            textField.placeholderTextColor = UIColor.textPlaceholderColor()
             textField.snp_makeConstraints(closure: { (make) -> Void in
-                make.bottom.equalTo(self)
-                make.height.equalTo(40)
-                make.left.equalTo(5)
-                make.right.equalTo(self).offset(-55)
+                make.centerY.equalTo(self.snp_centerY)
+                make.left.equalTo(UIConstant.textViewLeftMargin)
+                make.top.equalTo(UIConstant.textViewTopMargin)
+                make.right.equalTo(self).offset(-UIConstant.sendButtonWidth - UIConstant.textViewLeftMargin)
             })
             
             return textField
@@ -50,17 +53,14 @@ class AddPieceView: UIView {
         button = {
             let button = UIButton(type: UIButtonType.System)
             
-            self.addSubview(button)
-            
-//            button.backgroundColor = UIColor.redColor()
+            button.enabled = false
             button.setTitle("发送", forState: UIControlState.Normal)
-//            button.layer.borderColor = UIColor.blackColor().CGColor
-//            button.layer.borderWidth = 1
             
+            self.addSubview(button)
             button.snp_makeConstraints(closure: { (make) -> Void in
-                make.bottom.equalTo(self)
+                make.centerY.equalTo(self.snp_centerY)
                 make.height.equalTo(40)
-                make.left.equalTo(self.snp_right).offset(-50)
+                make.width.equalTo(UIConstant.sendButtonWidth)
                 make.right.equalTo(self).offset(0)
             })
             
@@ -68,10 +68,12 @@ class AddPieceView: UIView {
             
             return button
         } ()
+        
+        self.backgroundColor = UIColor.whiteColor()
     }
     
     @IBAction func addPiece(sender: AnyObject) {
-        let piece = Piece(pieceId: -1, pieceText: self.textView.text!, pieceTime: NSDate(), user: User.me, channel: self.channel)
+        let piece = Piece(pieceId: -1, pieceText: self.textView.text!, pieceTime: NSDate(), likeCnt: 0, commentCnt: 0, user: User.me, channel: self.channel)
         PieceApi.sharedInstance.addPiece(self.channel.channelId, pieceText: self.textView.text!) { (pieceId) -> Void in
             piece.pieceId = pieceId
             if self.callback != nil {
@@ -83,5 +85,11 @@ class AddPieceView: UIView {
     }
     
     
-
+    func textViewDidEndEditing(textView: YYTextView!) {
+        self.button.enabled = textView.text != nil && textView.text.characters.count > 0
+    }
+    
+    func textViewDidChange(textView: YYTextView!) {
+        self.button.enabled = textView.text != nil && textView.text.characters.count > 0
+    }
 }

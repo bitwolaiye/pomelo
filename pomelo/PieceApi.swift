@@ -31,5 +31,14 @@ class PieceApi: BaseApi {
                 
         }
     }
+    
+    func like(pieceId: Int, status: Int, callback: () -> Void) -> Void {
+        let url = "/piece/\(pieceId)/like"
+        self.post(url, parameters: ["piece_id": pieceId, "status": status], callback: { (json) -> Void in
+            callback()
+            }) { (json) -> Void in
+                
+        }
+    }
 
 }

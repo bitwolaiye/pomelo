@@ -29,18 +29,18 @@ class ChannelListCell: UITableViewCell {
         // Initialization code
         self.channelAvatarImage = {
             let imageView = UIImageView()
-            self.addSubview(imageView)
-            imageView.layer.borderColor = UIColor.blackColor().CGColor
-            imageView.layer.borderWidth = 1
-            imageView.layer.cornerRadius = 20
+            imageView.layer.cornerRadius = UIConstant.channelAvatarWidth / 2.0
             imageView.clipsToBounds = true
+            imageView.backgroundColor = UIColor.avatarBackgroundColor()
+
+            self.addSubview(imageView)
 
             imageView.snp_makeConstraints(closure: { (make) -> Void in
-                make.width.equalTo(40)
-                make.height.equalTo(40)
+                make.width.equalTo(UIConstant.channelAvatarWidth)
+                make.height.equalTo(UIConstant.channelAvatarHeight)
                 
-                make.left.equalTo(self).offset(10)
-                make.top.equalTo(self.snp_top).offset(10)
+                make.left.equalTo(self).offset(UIConstant.leftMargin)
+                make.top.equalTo(self.snp_top).offset(UIConstant.topMargin)
             })
             
             return imageView
@@ -48,13 +48,29 @@ class ChannelListCell: UITableViewCell {
         self.channelNameLabel = {
             let label = UILabel()
             self.addSubview(label)
-            label.font = UIFont.systemFontOfSize(14)
+            label.font = UIFont.systemFontOfSize(UIConstant.channelNameFontSize)
             label.snp_makeConstraints(closure: { (make) -> Void in
-                make.left.equalTo(self.channelAvatarImage.snp_right).offset(10)
-                make.top.equalTo(self.snp_top).offset(10)
+                make.left.equalTo(self.channelAvatarImage.snp_right).offset(UIConstant.innerMargin)
+                make.centerY.equalTo(self.channelAvatarImage.snp_centerY)
+                make.right.equalTo(self.contentView.snp_right).offset(-UIConstant.leftMargin)
             })
             return label
             } ()
+        self.contentView.backgroundColor = UIColor.cellBackgroundColor()
+//        self.contentView.layer.borderWidth = 0.5
+//        self.contentView.layer.borderColor = UIColor.blackColor().CGColor
+        
+        let bottomBorder = UIView()
+//        bottomBorder.frame = CGRectMake(0.0, self.contentView.frame.height - 1, self.contentView.frame.size.width, 1.0);
+        bottomBorder.backgroundColor = UIColor.cellBorderColor()
+        self.contentView.addSubview(bottomBorder)
+        bottomBorder.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(0)
+            make.right.equalTo(self.contentView)
+            make.height.equalTo(1)
+            make.top.equalTo(self.contentView.snp_bottom).offset(-1)
+        }
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

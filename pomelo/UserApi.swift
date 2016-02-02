@@ -36,7 +36,7 @@ class UserApi: BaseApi {
     }
     
     func login(userName: String, password: String, callback:() -> Void, failedCallback: () -> Void) -> Void {
-        self.post("/user/login", parameters: ["user_name": userName, "password": password], callback: { (json) -> Void in
+        self.post("/user/login", parameters: ["user_name": userName, "user_password": password], callback: { (json) -> Void in
             NSUserDefaults.standardUserDefaults().setInteger(json["user_id"].int!, forKey: "user_id")
             NSUserDefaults.standardUserDefaults().setObject(userName, forKey: "user_name")
             NSUserDefaults.standardUserDefaults().setObject(json["token"].string!, forKey: "token")
@@ -48,7 +48,7 @@ class UserApi: BaseApi {
     }
     
     func register(userName: String, password: String, callback:() -> Void, failedCallback: () -> Void) -> Void {
-        self.post("/user/register", parameters: ["user_name": userName, "password": password], callback: { (json) -> Void in
+        self.post("/user/register", parameters: ["user_name": userName, "user_password": password], callback: { (json) -> Void in
             NSUserDefaults.standardUserDefaults().setInteger(json["user_id"].int!, forKey: "user_id")
             NSUserDefaults.standardUserDefaults().setObject(userName, forKey: "user_name")
             NSUserDefaults.standardUserDefaults().setObject(json["token"].string!, forKey: "token")

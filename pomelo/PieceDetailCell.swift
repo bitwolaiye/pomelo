@@ -24,8 +24,8 @@ class PieceDetailCell: UITableViewCell {
             self.userNameLabel.text = self.piece.user!.userName
 //            self.pieceTimeLabel.text = self.piece.pieceTime.toRelativeString(abbreviated: false, maxUnits:2)
             self.pieceTimeLabel.text = self.piece.pieceTime.timeAgoSinceNow()
-            self.likeCntLabel.text = "\(0) Likes"
-            self.commentCntLabel.text = "\(0) Comments"
+            self.likeCntLabel.text = "\(self.piece.likeCnt) Likes"
+            self.commentCntLabel.text = "\(self.piece.commentCnt) Comments"
 
         }
     }
@@ -39,6 +39,9 @@ class PieceDetailCell: UITableViewCell {
     }
     
     @IBAction func like(sender: AnyObject) {
+        PieceApi.sharedInstance.like(self.piece.pieceId, status: 1) { () -> Void in
+            
+        }
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

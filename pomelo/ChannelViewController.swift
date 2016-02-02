@@ -143,6 +143,7 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.estimatedRowHeight = 44
             tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            tableView.backgroundColor = UIColor.tableBackgroundColor()
             
             tableView.snp_makeConstraints(closure: { (make) -> Void in
                 make.top.equalTo(self.topLayoutGuide)

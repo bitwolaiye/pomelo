@@ -15,13 +15,17 @@ class Piece: NSObject {
     var pieceVoice:String?
     var pieceVideo:String?
     var pieceTime:NSDate = NSDate(timeIntervalSince1970: 1)
+    var likeCnt:Int = 0
+    var commentCnt:Int = 0
     var user:User?
     var channel:Channel?
     
-    init(pieceId: Int, pieceText: String, pieceTime: NSDate, user: User?, channel: Channel?) {
+    init(pieceId: Int, pieceText: String, pieceTime: NSDate, likeCnt: Int, commentCnt: Int, user: User?, channel: Channel?) {
         self.pieceId = pieceId
         self.pieceText = pieceText
         self.pieceTime = pieceTime
+        self.likeCnt = likeCnt
+        self.commentCnt = commentCnt
         self.user = user
         self.channel = channel
     }

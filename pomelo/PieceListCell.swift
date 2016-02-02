@@ -26,8 +26,8 @@ class PieceListCell: UITableViewCell {
             self.pieceTextLabel.text = self.piece.pieceText
             self.userNameLabel.text = self.piece.user!.userName
             self.pieceTimeLabel.text = self.piece.pieceTime.timeAgoSinceNow()
-            self.likeCntLabel.text = "\(0) Likes"
-            self.commentCntLabel.text = "\(0) Comments"
+            self.likeCntLabel.text = "\(self.piece.likeCnt) Likes"
+            self.commentCntLabel.text = "\(self.piece.commentCnt) Comments"
         }
     }
     
@@ -40,7 +40,9 @@ class PieceListCell: UITableViewCell {
     }
     
     @IBAction func like(sender: AnyObject) {
-        
+        PieceApi.sharedInstance.like(self.piece.pieceId, status: 1) { () -> Void in
+            
+        }
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -60,31 +62,30 @@ class PieceListCell: UITableViewCell {
     }
     
     func initSubViews() {
-        let pieceTextLabel = UILabel()
-        self.contentView.addSubview(pieceTextLabel)
-        self.pieceTextLabel = pieceTextLabel
-        
-        pieceTextLabel.font = UIFont.systemFontOfSize(14)
-        pieceTextLabel.numberOfLines = 0
-        pieceTextLabel.lineBreakMode = NSLineBreakMode.ByCharWrapping
-        pieceTextLabel.snp_makeConstraints(closure: { (make) -> Void in
-            make.left.equalTo(self.contentView).offset(10)
-            make.right.equalTo(self.contentView).offset(-10)
-            make.top.equalTo(self.contentView.snp_top).offset(10)
-        })
+        let placeholder:UIView = {
+            let view = UIView()
+            view.backgroundColor = UIColor.tableBackgroundColor()
+            
+            self.contentView.addSubview(view)
+            view.snp_makeConstraints(closure: { (make) -> Void in
+                make.left.top.equalTo(0)
+                make.width.equalTo(self.contentView.snp_width)
+                make.height.equalTo(UIConstant.pieceListMargin)
+            })
+            return view
+        } ()
         
         self.userAvatarImgView = {
             let imageView = UIImageView()
-            self.contentView.addSubview(imageView)
-            imageView.layer.borderColor = UIColor.blackColor().CGColor
-            imageView.layer.borderWidth = 1
-            imageView.layer.cornerRadius = 20
+            imageView.layer.cornerRadius = UIConstant.userAvatarWidth / 2
             imageView.clipsToBounds = true
+            imageView.backgroundColor = UIColor.avatarBackgroundColor()
             
+            self.contentView.addSubview(imageView)
             imageView.snp_makeConstraints { (make) -> Void in
-                make.width.height.equalTo(40)
-                make.left.equalTo(self.contentView.snp_left).offset(10)
-                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(10)
+                make.width.height.equalTo(UIConstant.userAvatarWidth)
+                make.left.equalTo(self.contentView).offset(UIConstant.leftMargin)
+                make.top.equalTo(self.contentView).offset(UIConstant.innerMargin + UIConstant.pieceListMargin)
             }
             
             return imageView
@@ -92,13 +93,14 @@ class PieceListCell: UITableViewCell {
         
         self.userNameLabel = {
             let label = UILabel()
+            label.font = UIFont.systemFontOfSize(UIConstant.nickNameFontSize)
+            label.textColor = UIColor.nickNameColor()
             
             self.contentView.addSubview(label)
-            
-            label.font = UIFont.systemFontOfSize(14)
             label.snp_makeConstraints(closure: { (make) -> Void in
-                make.left.equalTo(userAvatarImgView.snp_right).offset(10)
-                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(10)
+                make.left.equalTo(userAvatarImgView.snp_right).offset(UIConstant.innerMargin)
+                make.centerY.equalTo(self.userAvatarImgView.snp_centerY)
+                make.width.lessThanOrEqualTo(UIConstant.nickNameMaxWidth)
             })
             
             return label
@@ -106,30 +108,49 @@ class PieceListCell: UITableViewCell {
         
         self.pieceTimeLabel = {
             let label = UILabel()
+            label.font = UIFont.systemFontOfSize(UIConstant.timeFontSize)
+            label.textColor = UIColor.timeColor()
             
             self.contentView.addSubview(label)
-            
-            label.font = UIFont.systemFontOfSize(14)
             label.snp_makeConstraints(closure: { (make) -> Void in
-                make.right.equalTo(self.contentView.snp_right).offset(-10)
-                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(10)
+                make.right.equalTo(self.contentView.snp_right).offset(-UIConstant.leftMargin)
+                make.centerY.equalTo(self.userAvatarImgView.snp_centerY)
+                make.width.lessThanOrEqualTo(UIConstant.timeMaxWidth)
             })
             
             return label
             } ()
         
+        self.pieceTextLabel = {
+            let label = UILabel()
+            
+            label.font = UIFont.systemFontOfSize(UIConstant.pieceTextFontSize)
+            label.numberOfLines = 0
+            label.lineBreakMode = NSLineBreakMode.ByCharWrapping
+            label.textColor = UIColor.pieceTextColor()
+            
+            self.contentView.addSubview(label)
+            label.snp_makeConstraints(closure: { (make) -> Void in
+                make.left.equalTo(self.contentView).offset(UIConstant.pieceTextLeftMargin)
+                make.right.equalTo(self.contentView).offset(-UIConstant.pieceTextLeftMargin)
+                make.top.equalTo(self.userAvatarImgView.snp_bottom).offset(UIConstant.innerMargin * 2)
+            })
+            
+            return label
+        } ()
+        
+        
+        
         let sperateView:UIView = {
             let view = UIView()
+            view.backgroundColor = UIColor.innerSperateColor()
             
             self.contentView.addSubview(view)
-            
-            view.backgroundColor = UIColor.grayColor()
-            
             view.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(1)
                 make.width.equalTo(self.contentView.snp_width)
                 make.left.equalTo(0)
-                make.top.equalTo(self.userAvatarImgView.snp_bottom).offset(10)
+                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(UIConstant.innerMargin * 2)
             })
             
             return view
@@ -151,7 +172,6 @@ class PieceListCell: UITableViewCell {
                 
                 label.font = UIFont.systemFontOfSize(12)
                 label.textAlignment = NSTextAlignment.Center
-                //                label.backgroundColor = UIColor.brownColor()
                 label.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(stackView.snp_height)
                 })
@@ -166,7 +186,6 @@ class PieceListCell: UITableViewCell {
                 
                 label.font = UIFont.systemFontOfSize(12)
                 label.textAlignment = NSTextAlignment.Center
-                //                label.backgroundColor = UIColor.grayColor()
                 label.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(stackView.snp_height)
                 })
@@ -179,8 +198,6 @@ class PieceListCell: UITableViewCell {
                 
                 stackView.addArrangedSubview(view)
                 
-                //                view.backgroundColor = UIColor.greenColor()
-                
                 view.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(stackView.snp_height)
                 })
@@ -190,7 +207,6 @@ class PieceListCell: UITableViewCell {
                     
                     view.addSubview(button)
                     button.addTarget(self, action: "like:", forControlEvents: UIControlEvents.TouchUpInside)
-//                    button.backgroundColor = UIColor.redColor()
                     button.snp_makeConstraints(closure: { (make) -> Void in
                         make.center.equalTo(view.snp_center)
                     })
@@ -216,9 +232,9 @@ class PieceListCell: UITableViewCell {
             
             stackView.snp_makeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(self.contentView.snp_width)
-                make.height.equalTo(50)
+                make.height.equalTo(48)
                 make.left.equalTo(0)
-                make.top.equalTo(self.userAvatarImgView.snp_bottom).offset(10)
+                make.top.equalTo(sperateView.snp_bottom)
             })
             
             return stackView

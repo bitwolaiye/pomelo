@@ -48,6 +48,7 @@ class FavorChannelTableViewController: UITableViewController, UIImagePickerContr
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.tableView.backgroundColor = UIColor.tableBackgroundColor()
         self.imagePicker.delegate = self
     }
     
@@ -118,7 +119,7 @@ class FavorChannelTableViewController: UITableViewController, UIImagePickerContr
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+        return UIConstant.channelListCellHeight
     }
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
