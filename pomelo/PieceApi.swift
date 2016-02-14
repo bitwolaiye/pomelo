@@ -14,7 +14,6 @@ class PieceApi: BaseApi {
     static let sharedInstance = PieceApi()
     
     func getChannelPieceList(chanelId:Int, callback: ([Piece]) -> Void) -> Void {
-        
         let url = "/channel/\(chanelId)/piece/list"
         self.get(url, callback: { (json) -> Void in
             callback(Piece.load_array(json["list"].array!))
@@ -24,21 +23,24 @@ class PieceApi: BaseApi {
     }
     
     func addPiece(channelId: Int, pieceText: String, callback: (Int) -> Void) -> Void {
-        let url = "/piece"
-        self.post(url, parameters: ["channel_id": channelId, "piece_text": pieceText], callback: { (json) -> Void in
-            callback(json["piece_id"].int!)
-            }) { (json) -> Void in
-                
+        if self.ensureUserLogin() != nil {
+            let url = "/piece"
+            self.post(url, parameters: ["channel_id": channelId, "piece_text": pieceText], callback: { (json) -> Void in
+                callback(json["piece_id"].int!)
+                }) { (json) -> Void in
+                    
+            }
         }
     }
     
     func like(pieceId: Int, status: Int, callback: () -> Void) -> Void {
-        let url = "/piece/\(pieceId)/like"
-        self.post(url, parameters: ["piece_id": pieceId, "status": status], callback: { (json) -> Void in
-            callback()
-            }) { (json) -> Void in
-                
+        if self.ensureUserLogin() != nil {
+            let url = "/piece/\(pieceId)/like"
+            self.post(url, parameters: ["piece_id": pieceId, "status": status], callback: { (json) -> Void in
+                callback()
+                }) { (json) -> Void in
+                    
+            }
         }
     }
-
 }

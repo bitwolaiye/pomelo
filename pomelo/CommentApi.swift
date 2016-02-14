@@ -23,11 +23,13 @@ class CommentApi: BaseApi {
     }
 
     func addComment(pieceId: Int, commentText: String, callback: (Int) -> Void) -> Void {
-        let url = "/piece/\(pieceId)/comment"
-        self.post(url, parameters: ["piece_id": pieceId, "comment_text": commentText], callback: { (json) -> Void in
-            callback(json["comment_id"].int!)
-            }) { (json) -> Void in
-                
+        if self.ensureUserLogin() != nil {
+            let url = "/piece/\(pieceId)/comment"
+            self.post(url, parameters: ["piece_id": pieceId, "comment_text": commentText], callback: { (json) -> Void in
+                callback(json["comment_id"].int!)
+                }) { (json) -> Void in
+                    
+            }
         }
     }
 }

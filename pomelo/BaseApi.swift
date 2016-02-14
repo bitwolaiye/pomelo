@@ -47,5 +47,13 @@ class BaseApi: NSObject {
         }
     }
     
+    func ensureUserLogin() -> User? {
+        let user:User? = User.getSelfProfile()
+        if user == nil {
+            let rootController = UIApplication.sharedApplication().delegate!.window!?.rootViewController as! RootController
+            rootController.toRegister()
+        }
+        return user
+    }
     
 }

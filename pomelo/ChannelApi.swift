@@ -14,7 +14,6 @@ class ChannelApi: BaseApi {
     static let sharedInstance = ChannelApi()
     
     func getFavorChannelList(callback: ([Channel]) -> Void) -> Void {
-        
         self.get("/channel", callback: { (json) -> Void in
             callback(Channel.load_array(json["list"].array!))
             }) { (json) -> Void in
