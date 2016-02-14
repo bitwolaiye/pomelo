@@ -147,7 +147,7 @@ class PieceListCell: UITableViewCell {
             
             self.contentView.addSubview(view)
             view.snp_makeConstraints(closure: { (make) -> Void in
-                make.height.equalTo(1)
+                make.height.equalTo(UIConstant.shadowHeight)
                 make.width.equalTo(self.contentView.snp_width)
                 make.left.equalTo(0)
                 make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(UIConstant.innerMargin * 2)
@@ -244,7 +244,7 @@ class PieceListCell: UITableViewCell {
             make.top.equalTo(0)
             make.left.equalTo(0)
             make.width.equalTo(self.snp_width)
-            make.bottom.equalTo(staticStackView.snp_bottom).offset(10)
+            make.bottom.equalTo(staticStackView.snp_bottom)
         }
     }
 

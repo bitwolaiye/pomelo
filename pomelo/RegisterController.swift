@@ -33,8 +33,46 @@ class RegisterController: UIViewController {
         }
     }
     
+    @IBAction func back(sender: AnyObject) {
+        let rootController = UIApplication.sharedApplication().delegate!.window!?.rootViewController as! RootController
+        rootController.registerSuccessed()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let leftAction:UIButton = {
+            let button = UIButton(type: .System)
+            
+            button.setTitle("返回", forState: UIControlState.Normal)
+            button.addTarget(self, action: "back:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            self.view.addSubview(button)
+            button.snp_makeConstraints(closure: { (make) -> Void in
+                make.left.equalTo(self.view)
+                make.top.equalTo(self.view).offset(UIConstant.topMargin)
+                make.width.equalTo(60)
+                make.height.equalTo(40)
+            })
+            
+            return button
+        } ()
+        
+        let rightAction:UIButton = {
+            let button = UIButton(type: .System)
+            
+            button.setTitle("...", forState: UIControlState.Normal)
+            
+            self.view.addSubview(button)
+            button.snp_makeConstraints(closure: { (make) -> Void in
+                make.right.equalTo(self.view)
+                make.top.equalTo(self.view).offset(UIConstant.topMargin)
+                make.width.equalTo(60)
+                make.height.equalTo(40)
+            })
+            
+            return button
+        } ()
 
         // Do any additional setup after loading the view.
         let container:UIStackView = {
@@ -48,7 +86,7 @@ class RegisterController: UIViewController {
             stackView.snp_makeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(self.view.snp_width)
                 make.height.equalTo(200)
-                make.top.equalTo(self.topLayoutGuide).offset(40)
+                make.top.equalTo(self.topLayoutGuide).offset(100)
                 make.left.equalTo(0)
             })
             
@@ -74,7 +112,7 @@ class RegisterController: UIViewController {
             stackView.addArrangedSubview(label)
             label.text = "用户名"
             label.font = UIFont(name: label.font.fontName, size: 14)
-            label.backgroundColor = UIColor.grayColor()
+//            label.backgroundColor = UIColor.grayColor()
             label.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(30)
                 make.width.equalTo(50)
@@ -90,7 +128,7 @@ class RegisterController: UIViewController {
                 textField.clearButtonMode = UITextFieldViewMode.WhileEditing
                 textField.clearsOnBeginEditing = true
                 textField.font = UIFont(name: textField.font!.fontName, size: 14)
-                textField.backgroundColor = UIColor.grayColor()
+//                textField.backgroundColor = UIColor.grayColor()
                 
                 textField.snp_makeConstraints(closure: { (make) -> Void in
                     make.width.equalTo(240)
@@ -135,7 +173,7 @@ class RegisterController: UIViewController {
             stackView.addArrangedSubview(label)
             label.text = "密码"
             label.font = UIFont(name: label.font.fontName, size: 14)
-            label.backgroundColor = UIColor.grayColor()
+//            label.backgroundColor = UIColor.grayColor()
             label.snp_makeConstraints(closure: { (make) -> Void in
                 make.height.equalTo(30)
                 make.width.equalTo(50)
@@ -151,7 +189,7 @@ class RegisterController: UIViewController {
                 textField.clearButtonMode = UITextFieldViewMode.WhileEditing
                 textField.clearsOnBeginEditing = true
                 textField.font = UIFont(name: textField.font!.fontName, size: 14)
-                textField.backgroundColor = UIColor.grayColor()
+//                textField.backgroundColor = UIColor.grayColor()
                 
                 textField.snp_makeConstraints(closure: { (make) -> Void in
                     make.width.equalTo(240)

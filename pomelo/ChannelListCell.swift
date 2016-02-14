@@ -61,14 +61,13 @@ class ChannelListCell: UITableViewCell {
 //        self.contentView.layer.borderColor = UIColor.blackColor().CGColor
         
         let bottomBorder = UIView()
-//        bottomBorder.frame = CGRectMake(0.0, self.contentView.frame.height - 1, self.contentView.frame.size.width, 1.0);
         bottomBorder.backgroundColor = UIColor.cellBorderColor()
         self.contentView.addSubview(bottomBorder)
         bottomBorder.snp_makeConstraints { (make) -> Void in
             make.left.equalTo(0)
             make.right.equalTo(self.contentView)
-            make.height.equalTo(1)
-            make.top.equalTo(self.contentView.snp_bottom).offset(-1)
+            make.height.equalTo(UIConstant.shadowHeight)
+            make.top.equalTo(self.contentView.snp_bottom).offset(-UIConstant.shadowHeight)
         }
 
     }

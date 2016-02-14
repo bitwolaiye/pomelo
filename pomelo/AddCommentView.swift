@@ -9,8 +9,8 @@
 import UIKit
 import YYText
 
-class AddCommentView: UIView {
-    @IBOutlet weak var textView:UITextField!
+class AddCommentView: UIView, YYTextViewDelegate {
+    @IBOutlet weak var textView:YYTextView!
     @IBOutlet weak var button:UIButton!
     
     var piece:Piece!
@@ -21,28 +21,31 @@ class AddCommentView: UIView {
             let view = UIView()
             
             self.addSubview(view)
-            view.backgroundColor = UIColor.grayColor()
+            view.backgroundColor = UIColor.cellBorderColor()
             view.snp_makeConstraints(closure: { (make) -> Void in
                 make.left.top.equalTo(0)
                 make.right.equalTo(self)
-                make.height.equalTo(1)
+                make.height.equalTo(UIConstant.shadowHeight)
             })
             
             return view
         } ()
 
         textView = {
-            let textField = UITextField()
+            let textField = YYTextView()
+            
+            textField.font = UIFont.systemFontOfSize(UIConstant.textViewFontSize)
+            textField.delegate = self
+            textField.backgroundColor = UIColor.textBackgroundColor()
+            textField.placeholderText = "say something"
+            textField.placeholderTextColor = UIColor.textPlaceholderColor()
             
             self.addSubview(textField)
-            
-            textField.font = UIFont.systemFontOfSize(20)
-//            textField.backgroundColor = UIColor.grayColor()
             textField.snp_makeConstraints(closure: { (make) -> Void in
-                make.bottom.equalTo(self)
-                make.height.equalTo(40)
-                make.left.equalTo(5)
-                make.right.equalTo(self).offset(-55)
+                make.centerY.equalTo(self.snp_centerY)
+                make.left.equalTo(UIConstant.textViewLeftMargin)
+                make.top.equalTo(UIConstant.textViewTopMargin)
+                make.right.equalTo(self).offset(-UIConstant.sendButtonWidth - UIConstant.textViewLeftMargin)
             })
             
             return textField
@@ -51,14 +54,14 @@ class AddCommentView: UIView {
         button = {
             let button = UIButton(type: UIButtonType.System)
             
-            self.addSubview(button)
-            
-//            button.backgroundColor = UIColor.redColor()
+            button.enabled = false
             button.setTitle("评论", forState: UIControlState.Normal)
+            
+            self.addSubview(button)
             button.snp_makeConstraints(closure: { (make) -> Void in
-                make.bottom.equalTo(self)
+                make.centerY.equalTo(self.snp_centerY)
                 make.height.equalTo(40)
-                make.left.equalTo(self.snp_right).offset(-50)
+                make.width.equalTo(UIConstant.sendButtonWidth)
                 make.right.equalTo(self).offset(0)
             })
             
@@ -66,6 +69,8 @@ class AddCommentView: UIView {
             
             return button
             } ()
+        
+        self.backgroundColor = UIColor.whiteColor()
     }
     
     @IBAction func addComment(sender: AnyObject) {
@@ -78,5 +83,13 @@ class AddCommentView: UIView {
         }
         self.textView.text = nil
         self.endEditing(true)
+    }
+    
+    func textViewDidEndEditing(textView: YYTextView!) {
+        self.button.enabled = textView.text != nil && textView.text.characters.count > 0
+    }
+    
+    func textViewDidChange(textView: YYTextView!) {
+        self.button.enabled = textView.text != nil && textView.text.characters.count > 0
     }
 }

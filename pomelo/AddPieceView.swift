@@ -25,7 +25,7 @@ class AddPieceView: UIView, YYTextViewDelegate {
             view.snp_makeConstraints(closure: { (make) -> Void in
                 make.left.top.equalTo(0)
                 make.right.equalTo(self)
-                make.height.equalTo(1)
+                make.height.equalTo(UIConstant.shadowHeight)
             })
             
             return view

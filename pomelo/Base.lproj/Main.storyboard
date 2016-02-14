@@ -32,22 +32,6 @@
                     <view key="view" contentMode="scaleToFill" id="6v5-BF-MgQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NhI-H1-lA4">
-                                <rect key="frame" x="150" y="333" width="46" height="30"/>
-                                <state key="normal" title="登录"/>
-                                <connections>
-                                    <action selector="login:" destination="oEn-Fx-rgk" eventType="touchUpInside" id="v5q-z0-hvh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rh-Ot-SSV">
-                                <rect key="frame" x="277" y="333" width="46" height="30"/>
-                                <state key="normal" title="注册"/>
-                                <connections>
-                                    <action selector="register:" destination="oEn-Fx-rgk" eventType="touchUpInside" id="KVK-aq-cEI"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>

@@ -60,176 +60,206 @@ class PieceDetailCell: UITableViewCell {
     }
     
     func initSubViews() {
-        self.pieceTextLabel = {
-            let label = UILabel()
-            self.contentView.addSubview(label)
-            label.font = UIFont.systemFontOfSize(14)
-            label.snp_makeConstraints(closure: { (make) -> Void in
-                make.left.equalTo(self.contentView).offset(10)
-                make.right.equalTo(self.contentView).offset(-10)
-                make.top.equalTo(self.contentView.snp_top).offset(10)
-            })
-            return label
-            } ()
-        
-        self.userAvatarImgView = {
-            let imageView = UIImageView()
-            self.contentView.addSubview(imageView)
-            imageView.layer.borderColor = UIColor.blackColor().CGColor
-            imageView.layer.borderWidth = 1
-            imageView.layer.cornerRadius = 20
-            imageView.clipsToBounds = true
-            
-            imageView.snp_makeConstraints { (make) -> Void in
-                make.width.height.equalTo(40)
-                make.left.equalTo(self.contentView.snp_left).offset(10)
-                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(10)
-            }
-            
-            return imageView
-            } ()
-        
-        self.userNameLabel = {
-            let label = UILabel()
-            
-            self.contentView.addSubview(label)
-            
-            label.font = UIFont.systemFontOfSize(14)
-            label.snp_makeConstraints(closure: { (make) -> Void in
-                make.left.equalTo(userAvatarImgView.snp_right).offset(10)
-                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(10)
-            })
-            
-            return label
-            } ()
-        
-        self.pieceTimeLabel = {
-            let label = UILabel()
-            
-            self.contentView.addSubview(label)
-            
-            label.font = UIFont.systemFontOfSize(14)
-            label.snp_makeConstraints(closure: { (make) -> Void in
-                make.right.equalTo(self.contentView.snp_right).offset(-10)
-                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(10)
-            })
-            
-            return label
-            } ()
-        
-        let sperateView:UIView = {
+        let placeholder:UIView = {
             let view = UIView()
-            
+            view.backgroundColor = UIColor.tableBackgroundColor()
+
             self.contentView.addSubview(view)
-            
-            view.backgroundColor = UIColor.grayColor()
-            
             view.snp_makeConstraints(closure: { (make) -> Void in
-                make.height.equalTo(1)
+                make.left.top.equalTo(0)
                 make.width.equalTo(self.contentView.snp_width)
-                make.left.equalTo(0)
-                make.top.equalTo(self.userAvatarImgView.snp_bottom).offset(10)
+                make.height.equalTo(UIConstant.pieceListMargin)
             })
-            
             return view
         } ()
-        
+
+        self.userAvatarImgView = {
+            let imageView = UIImageView()
+            imageView.layer.cornerRadius = UIConstant.userAvatarWidth / 2
+            imageView.clipsToBounds = true
+            imageView.backgroundColor = UIColor.avatarBackgroundColor()
+
+            self.contentView.addSubview(imageView)
+            imageView.snp_makeConstraints { (make) -> Void in
+                make.width.height.equalTo(UIConstant.userAvatarWidth)
+                make.left.equalTo(self.contentView).offset(UIConstant.leftMargin)
+                make.top.equalTo(self.contentView).offset(UIConstant.innerMargin + UIConstant.pieceListMargin)
+            }
+
+            return imageView
+        } ()
+
+        self.userNameLabel = {
+            let label = UILabel()
+            label.font = UIFont.systemFontOfSize(UIConstant.nickNameFontSize)
+            label.textColor = UIColor.nickNameColor()
+
+            self.contentView.addSubview(label)
+            label.snp_makeConstraints(closure: { (make) -> Void in
+                make.left.equalTo(userAvatarImgView.snp_right).offset(UIConstant.innerMargin)
+                make.centerY.equalTo(self.userAvatarImgView.snp_centerY)
+                make.width.lessThanOrEqualTo(UIConstant.nickNameMaxWidth)
+            })
+
+            return label
+        } ()
+
+        self.pieceTimeLabel = {
+            let label = UILabel()
+            label.font = UIFont.systemFontOfSize(UIConstant.timeFontSize)
+            label.textColor = UIColor.timeColor()
+
+            self.contentView.addSubview(label)
+            label.snp_makeConstraints(closure: { (make) -> Void in
+                make.right.equalTo(self.contentView.snp_right).offset(-UIConstant.leftMargin)
+                make.centerY.equalTo(self.userAvatarImgView.snp_centerY)
+                make.width.lessThanOrEqualTo(UIConstant.timeMaxWidth)
+            })
+
+            return label
+        } ()
+
+        self.pieceTextLabel = {
+            let label = UILabel()
+
+            label.font = UIFont.systemFontOfSize(UIConstant.pieceTextFontSize)
+            label.numberOfLines = 0
+            label.lineBreakMode = NSLineBreakMode.ByCharWrapping
+            label.textColor = UIColor.pieceTextColor()
+
+            self.contentView.addSubview(label)
+            label.snp_makeConstraints(closure: { (make) -> Void in
+                make.left.equalTo(self.contentView).offset(UIConstant.pieceTextLeftMargin)
+                make.right.equalTo(self.contentView).offset(-UIConstant.pieceTextLeftMargin)
+                make.top.equalTo(self.userAvatarImgView.snp_bottom).offset(UIConstant.innerMargin * 2)
+            })
+
+            return label
+        } ()
+
+
+
+        let sperateView:UIView = {
+            let view = UIView()
+            view.backgroundColor = UIColor.innerSperateColor()
+
+            self.contentView.addSubview(view)
+            view.snp_makeConstraints(closure: { (make) -> Void in
+                make.height.equalTo(UIConstant.shadowHeight)
+                make.width.equalTo(self.contentView.snp_width)
+                make.left.equalTo(0)
+                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(UIConstant.innerMargin * 2)
+            })
+
+            return view
+        } ()
+
         let staticStackView:UIStackView = {
             let stackView = UIStackView()
-            
+
             self.contentView.addSubview(stackView)
-            
+
             stackView.axis = UILayoutConstraintAxis.Horizontal
             stackView.alignment = UIStackViewAlignment.Center
             stackView.distribution = UIStackViewDistribution.FillEqually
-            
+
             self.likeCntLabel = {
                 let label = UILabel()
-                
+
                 stackView.addArrangedSubview(label)
-                
+
                 label.font = UIFont.systemFontOfSize(12)
                 label.textAlignment = NSTextAlignment.Center
-                //                label.backgroundColor = UIColor.brownColor()
                 label.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(stackView.snp_height)
                 })
-                
+
                 return label
-                } ()
-            
+            } ()
+
             self.commentCntLabel = {
                 let label = UILabel()
-                
+
                 stackView.addArrangedSubview(label)
-                
+
                 label.font = UIFont.systemFontOfSize(12)
                 label.textAlignment = NSTextAlignment.Center
-                //                label.backgroundColor = UIColor.grayColor()
                 label.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(stackView.snp_height)
                 })
-                
+
                 return label
-                } ()
-            
+            } ()
+
             let view:UIView = {
                 let view = UIView()
-                
+
                 stackView.addArrangedSubview(view)
-                
-                //                view.backgroundColor = UIColor.greenColor()
-                
+
                 view.snp_makeConstraints(closure: { (make) -> Void in
                     make.height.equalTo(stackView.snp_height)
                 })
-                
+
                 self.likeBtn = {
                     let button = UIButton()
-                    
+
                     view.addSubview(button)
-//                    button.setImage(UIImage(named: "like"), forState: UIControlState.Normal)
                     button.addTarget(self, action: "like:", forControlEvents: UIControlEvents.TouchUpInside)
-//                    button.backgroundColor = UIColor.redColor()
                     button.snp_makeConstraints(closure: { (make) -> Void in
                         make.center.equalTo(view.snp_center)
                     })
-                    
+
                     var icon: UIImageView = {
                         let imageView = UIImageView()
-                        
+
                         button.addSubview(imageView)
                         imageView.image = UIImage(named: "like")
                         imageView.snp_makeConstraints(closure: { (make) -> Void in
                             make.center.equalTo(button)
                             make.width.height.equalTo(30)
                         })
-                        
+
                         return imageView
                     } ()
-                    
+
                     return button
-                    } ()
-                
+                } ()
+
                 return view
             } ()
-            
+
             stackView.snp_makeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(self.contentView.snp_width)
-                make.height.equalTo(50)
+                make.height.equalTo(48)
                 make.left.equalTo(0)
-                make.top.equalTo(self.userAvatarImgView.snp_bottom).offset(10)
+                make.top.equalTo(sperateView.snp_bottom)
             })
-            
+
             return stackView
         } ()
         
+        let separator:SharpSeparatorView = {
+            let separator = SharpSeparatorView()
+            
+            self.contentView.addSubview(separator)
+            separator.backgroundColor = UIColor.whiteColor()
+            separator.snp_makeConstraints(closure: { (make) -> Void in
+                make.left.equalTo(0)
+                make.width.equalTo(self.contentView.snp_width)
+                make.height.equalTo(7)
+                make.top.equalTo(staticStackView.snp_bottom)
+            })
+            
+            return separator
+        } ()
+
         self.contentView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(0)
             make.left.equalTo(0)
             make.width.equalTo(self.snp_width)
-            make.bottom.equalTo(staticStackView.snp_bottom).offset(10)
+            make.bottom.equalTo(staticStackView.snp_bottom)
         }
+
     }
     
 //    override func awakeAfterUsingCoder(aDecoder: NSCoder) -> AnyObject? {

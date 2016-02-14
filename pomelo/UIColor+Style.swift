@@ -65,6 +65,10 @@ extension UIColor {
         return UIColor.getColor(240, green: 240, blue: 240)
     }
     
+    static func commentSperateColor() -> UIColor {
+        return UIColor.getColor(230, green: 230, blue: 230)
+    }
+    
     static func getColor(red: Int, green: Int, blue: Int) -> UIColor {
         return UIColor(red: CGFloat(Double(red) / 255.0), green: CGFloat(Double(green) / 255.0), blue: CGFloat(Double(blue) / 255.0), alpha: 1.0)
     }
