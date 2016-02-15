@@ -33,12 +33,13 @@ class PieceApi: BaseApi {
         }
     }
     
-    func addPiece(channelId: Int, pieceText: String, imageData: NSData, callback: (Int) -> Void) -> Void {
+    func addPiece(channelId: Int, pieceText: String, imageData: NSData, callback: (Piece) -> Void) -> Void {
         if self.ensureUserLogin() != nil {
             self.upload(imageData) { (piecePic) -> Void in
                 let url = "/piece"
                 self.post(url, parameters: ["channel_id": channelId, "piece_text": pieceText, "piece_pic": piecePic], callback: { (json) -> Void in
-                    callback(json["piece_id"].int!)
+                    let piece = Piece(pieceId: json["piece_id"].int!, pieceText: pieceText, pieceTime: NSDate(), piecePic: piecePic, likeCnt: 0, commentCnt: 0, user: User.me, channel: nil)
+                    callback(piece)
                     }) { (json) -> Void in
                         
                 }

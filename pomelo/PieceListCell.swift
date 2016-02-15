@@ -17,12 +17,12 @@ class PieceListCell: UITableViewCell {
     @IBOutlet weak var userNameLabel:UILabel!
     @IBOutlet weak var userAvatarImgView:UIImageView!
     @IBOutlet weak var pieceTimeLabel:UILabel!
-    var piecePicImgView:UIImageView!
-    var piecePicImgViewHeightConstraint: Constraint!
+    @IBOutlet weak var piecePicImgView:UIImageView!
     @IBOutlet weak var likeCntLabel:UILabel!
     @IBOutlet weak var commentCntLabel:UILabel!
     @IBOutlet weak var likeBtn:UIButton!
     
+    var piecePicImgViewHeightConstraint: Constraint!
     
     var piece:Piece!
         {
@@ -169,7 +169,7 @@ class PieceListCell: UITableViewCell {
                 make.left.equalTo(self.contentView).offset(UIConstant.piecePicLeftMargin)
                 self.piecePicImgViewHeightConstraint = make.height.equalTo(0).constraint
                 make.centerX.equalTo(self.contentView.snp_centerX)
-                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(UIConstant.innerMargin * 2)
+                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(UIConstant.innerMargin)
             })
             
             return imageView
@@ -184,7 +184,7 @@ class PieceListCell: UITableViewCell {
                 make.height.equalTo(UIConstant.shadowHeight)
                 make.width.equalTo(self.contentView.snp_width)
                 make.left.equalTo(0)
-                make.top.equalTo(self.piecePicImgView.snp_bottom).offset(UIConstant.innerMargin * 2)
+                make.top.equalTo(self.piecePicImgView.snp_bottom).offset(UIConstant.innerMargin)
             })
             
             return view

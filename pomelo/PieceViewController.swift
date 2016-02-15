@@ -153,7 +153,11 @@ class PieceViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell.piece = self.piece
             cell.layoutSubviews()
             let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-            return 1  + size.height;
+            var height = 1  + size.height
+            if cell.piece.piecePicUrl != nil {
+                height += self.tableView.frame.size.width - UIConstant.piecePicLeftMargin * 2
+            }
+            return height
         } else {
             let cell = self.commentPrototypeCell
             cell.comment = self.comments[indexPath.row - 1]

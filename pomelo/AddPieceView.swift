@@ -97,16 +97,12 @@ class AddPieceView: UIView, YYTextViewDelegate, UIImagePickerControllerDelegate,
     
     @IBAction func addPiece(sender: AnyObject) {
         if self.imageData != nil {
-            let piece = Piece(pieceId: -1, pieceText: self.textView.text!, pieceTime: NSDate(), piecePic: nil, likeCnt: 0, commentCnt: 0, user: User.me, channel: self.channel)
-            PieceApi.sharedInstance.addPiece(self.channel.channelId, pieceText: self.textView.text!, imageData: self.imageData!) { (pieceId) -> Void in
-                piece.pieceId = pieceId
+            PieceApi.sharedInstance.addPiece(self.channel.channelId, pieceText: self.textView.text!, imageData: self.imageData!) { (piece) -> Void in
+                piece.channel = self.channel
                 if self.callback != nil {
                     self.callback(piece)
                 }
             }
-            self.textView.text = nil
-            self.endEditing(true)
-            
         } else {
             let piece = Piece(pieceId: -1, pieceText: self.textView.text!, pieceTime: NSDate(), piecePic: nil, likeCnt: 0, commentCnt: 0, user: User.me, channel: self.channel)
             PieceApi.sharedInstance.addPiece(self.channel.channelId, pieceText: self.textView.text!) { (pieceId) -> Void in
@@ -115,10 +111,9 @@ class AddPieceView: UIView, YYTextViewDelegate, UIImagePickerControllerDelegate,
                     self.callback(piece)
                 }
             }
-            self.textView.text = nil
-            self.endEditing(true)
-            
         }
+        self.textView.text = nil
+        self.endEditing(true)
     }
     
     @IBAction func selectImage(sender: AnyObject) {
@@ -138,12 +133,10 @@ class AddPieceView: UIView, YYTextViewDelegate, UIImagePickerControllerDelegate,
                 imagePicker.delegate = self
                 imagePicker.sourceType =
                     UIImagePickerControllerSourceType.Camera
-                //                imagePicker.mediaTypes = [kUTTypeImage as NSString]
                 imagePicker.allowsEditing = false
                 
                 self.controller!.presentViewController(imagePicker, animated: true,
                     completion: nil)
-                //                newMedia = true
         }
     }
     
