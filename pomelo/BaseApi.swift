@@ -47,6 +47,31 @@ class BaseApi: NSObject {
         }
     }
     
+    func upload(imageData: NSData, callback:(String) -> Void) {
+        let timestamp:Int = Int(NSDate().timeIntervalSince1970)
+        let userId = NSUserDefaults.standardUserDefaults().integerForKey("user_id")
+        let fileName = "\(userId)_\(timestamp).jpg"
+        let url = BaseApi.baseUrl + "/upload"
+        Alamofire.upload(
+            .POST,
+            url,
+            multipartFormData: { multipartFormData in
+                multipartFormData.appendBodyPart(data: imageData, name: "image", fileName: fileName, mimeType: "JPG")
+            },
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .Success(let upload, _, _):
+                    upload.responseJSON { response in
+                        callback(fileName)
+                        debugPrint(response)
+                    }
+                case .Failure(let encodingError):
+                    print(encodingError)
+                }
+            }
+        )
+    }
+    
     func ensureUserLogin() -> User? {
         let user:User? = User.getSelfProfile()
         if user == nil {

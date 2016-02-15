@@ -42,4 +42,7 @@ class UIConstant: NSObject {
     static let sendButtonWidth:CGFloat = 50
     
     static let shadowHeight = 0.5
+    
+    static let piecePicCorner:CGFloat = 5.0
+    static let piecePicLeftMargin:CGFloat = 20.0
 }

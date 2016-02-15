@@ -10,18 +10,22 @@ import UIKit
 import SwiftDate
 import DateTools
 import Kingfisher
+import SnapKit
 
 class PieceListCell: UITableViewCell {
     @IBOutlet weak var pieceTextLabel:UILabel!
     @IBOutlet weak var userNameLabel:UILabel!
     @IBOutlet weak var userAvatarImgView:UIImageView!
     @IBOutlet weak var pieceTimeLabel:UILabel!
+    var piecePicImgView:UIImageView!
+    var piecePicImgViewHeightConstraint: Constraint!
     @IBOutlet weak var likeCntLabel:UILabel!
     @IBOutlet weak var commentCntLabel:UILabel!
     @IBOutlet weak var likeBtn:UIButton!
     
     
-    var piece:Piece! {
+    var piece:Piece!
+        {
         didSet {
             self.pieceTextLabel.text = self.piece.pieceText
             self.userNameLabel.text = self.piece.user!.userName
@@ -37,6 +41,21 @@ class PieceListCell: UITableViewCell {
         } else {
             self.userAvatarImgView.image = nil
         }
+        if self.piece.piecePicUrl != nil {
+            self.piecePicImgView.backgroundColor = UIColor.blackColor()
+            self.piecePicImgView.kf_setImageWithURL(NSURL(string: (self.piece.piecePicUrl)!)!)
+            self.piecePicImgViewHeightConstraint.uninstall()
+            self.piecePicImgView.snp_makeConstraints(closure: { (make) -> Void in
+                self.piecePicImgViewHeightConstraint = make.height.equalTo(self.piecePicImgView.snp_width).constraint
+            })
+        } else {
+            self.piecePicImgView.image = nil
+            self.piecePicImgViewHeightConstraint.uninstall()
+            self.piecePicImgView.snp_updateConstraints(closure: { (make) -> Void in
+                self.piecePicImgViewHeightConstraint = make.height.equalTo(0).constraint
+            })
+        }
+        self.updateConstraintsIfNeeded()
     }
     
     @IBAction func like(sender: AnyObject) {
@@ -139,7 +158,22 @@ class PieceListCell: UITableViewCell {
             return label
         } ()
         
-        
+        piecePicImgView = {
+            let imageView = UIImageView()
+            
+            self.contentView.addSubview(imageView)
+            imageView.layer.cornerRadius = UIConstant.piecePicCorner
+            imageView.clipsToBounds = true
+            
+            imageView.snp_makeConstraints(closure: { (make) -> Void in
+                make.left.equalTo(self.contentView).offset(UIConstant.piecePicLeftMargin)
+                self.piecePicImgViewHeightConstraint = make.height.equalTo(0).constraint
+                make.centerX.equalTo(self.contentView.snp_centerX)
+                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(UIConstant.innerMargin * 2)
+            })
+            
+            return imageView
+        } ()
         
         let sperateView:UIView = {
             let view = UIView()
@@ -150,7 +184,7 @@ class PieceListCell: UITableViewCell {
                 make.height.equalTo(UIConstant.shadowHeight)
                 make.width.equalTo(self.contentView.snp_width)
                 make.left.equalTo(0)
-                make.top.equalTo(self.pieceTextLabel.snp_bottom).offset(UIConstant.innerMargin * 2)
+                make.top.equalTo(self.piecePicImgView.snp_bottom).offset(UIConstant.innerMargin * 2)
             })
             
             return view

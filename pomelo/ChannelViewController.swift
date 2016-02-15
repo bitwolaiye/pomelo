@@ -174,6 +174,8 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
                 make.right.equalTo(self.view)
             })
             
+            addPieceView.controller = self
+            
             return addPieceView
             } ()
         
@@ -220,7 +222,11 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.piece = self.pieces[indexPath.row]
         cell.layoutSubviews()
         let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-        return 1  + size.height;
+        var height = 1  + size.height
+        if cell.piece.piecePicUrl != nil {
+            height += self.tableView.frame.size.width - UIConstant.piecePicLeftMargin * 2
+        }
+        return height;
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

@@ -20,13 +20,31 @@ class Piece: NSObject {
     var user:User?
     var channel:Channel?
     
-    init(pieceId: Int, pieceText: String, pieceTime: NSDate, likeCnt: Int, commentCnt: Int, user: User?, channel: Channel?) {
+    var piecePicUrl:String?
+    var piecePicThumbUrl:String?
+    
+    init(pieceId: Int, pieceText: String, pieceTime: NSDate, piecePic: String?, likeCnt: Int, commentCnt: Int, user: User?, channel: Channel?) {
+        super.init()
+        
         self.pieceId = pieceId
         self.pieceText = pieceText
         self.pieceTime = pieceTime
+        self.piecePic = piecePic
         self.likeCnt = likeCnt
         self.commentCnt = commentCnt
         self.user = user
         self.channel = channel
+        
+        self.updateUrl()
+    }
+    
+    func updateUrl() -> Void {
+        if piecePic == nil {
+            piecePicUrl = nil
+            piecePicThumbUrl = nil
+        } else {
+            piecePicUrl = "https://zhouqi.work/pomelo/piece/\(piecePic!)"
+            piecePicThumbUrl = "https://zhouqi.work/pomelo/piece/thumb/\(piecePic!)"
+        }
     }
 }
