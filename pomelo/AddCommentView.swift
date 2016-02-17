@@ -12,6 +12,8 @@ import YYText
 class AddCommentView: UIView, YYTextViewDelegate {
     @IBOutlet weak var textView:YYTextView!
     @IBOutlet weak var button:UIButton!
+
+    weak var delegate:AddCommentViewDelegate?
     
     var piece:Piece!
     var callback:((Comment) -> Void)!
@@ -93,3 +95,8 @@ class AddCommentView: UIView, YYTextViewDelegate {
         self.button.enabled = textView.text != nil && textView.text.characters.count > 0
     }
 }
+
+protocol AddCommentViewDelegate: NSObjectProtocol {
+    func addCommentSuccess(comment: Comment) -> Void
+}
+

@@ -80,6 +80,7 @@ class PieceViewController: UIViewController, UITableViewDataSource, UITableViewD
             addCommentView.initSubviews()
             addCommentView.piece = self.piece
             addCommentView.callback = { (comment) -> Void in
+                self.piece.commentCnt += 1
                 self.comments.insert(comment, atIndex: 0)
                 self.tableView.reloadData()
             }

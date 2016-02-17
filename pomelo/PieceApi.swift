@@ -38,7 +38,7 @@ class PieceApi: BaseApi {
             self.upload(imageData) { (piecePic) -> Void in
                 let url = "/piece"
                 self.post(url, parameters: ["channel_id": channelId, "piece_text": pieceText, "piece_pic": piecePic], callback: { (json) -> Void in
-                    let piece = Piece(pieceId: json["piece_id"].int!, pieceText: pieceText, pieceTime: NSDate(), piecePic: piecePic, likeCnt: 0, commentCnt: 0, user: User.me, channel: nil)
+                    let piece = Piece(pieceId: json["piece_id"].int!, pieceText: pieceText, pieceTime: NSDate(), piecePic: piecePic, likeCnt: 0, commentCnt: 0, isLike: 0, user: User.me, channel: nil)
                     callback(piece)
                     }) { (json) -> Void in
                         

@@ -38,6 +38,8 @@ class ChannelViewController: UIViewController, UITableViewDataSource, UITableVie
             self.reloadDataFromApi()
         }
         if let selectedRow = self.tableView.indexPathForSelectedRow {
+            let cell = self.tableView.cellForRowAtIndexPath(selectedRow) as! PieceListCell
+            cell.updateContent()
             self.tableView.deselectRowAtIndexPath(selectedRow, animated: false)
         }
         self.addPieceView.channel = self.channel

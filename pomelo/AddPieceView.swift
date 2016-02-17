@@ -104,7 +104,7 @@ class AddPieceView: UIView, YYTextViewDelegate, UIImagePickerControllerDelegate,
                 }
             }
         } else {
-            let piece = Piece(pieceId: -1, pieceText: self.textView.text!, pieceTime: NSDate(), piecePic: nil, likeCnt: 0, commentCnt: 0, user: User.me, channel: self.channel)
+            let piece = Piece(pieceId: -1, pieceText: self.textView.text!, pieceTime: NSDate(), piecePic: nil, likeCnt: 0, commentCnt: 0, isLike: 0, user: User.me, channel: self.channel)
             PieceApi.sharedInstance.addPiece(self.channel.channelId, pieceText: self.textView.text!) { (pieceId) -> Void in
                 piece.pieceId = pieceId
                 if self.callback != nil {

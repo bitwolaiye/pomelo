@@ -19,6 +19,7 @@ class PieceDetailCell: UITableViewCell {
     @IBOutlet weak var likeCntLabel:UILabel!
     @IBOutlet weak var commentCntLabel:UILabel!
     @IBOutlet weak var likeBtn:UIButton!
+    @IBOutlet weak var likeIconImgView:UIImageView!
     
     var piecePicImgViewHeightConstraint: Constraint!
     
@@ -34,12 +35,32 @@ class PieceDetailCell: UITableViewCell {
         }
     }
     
+    func updateContent() {
+        self.likeCntLabel.text = "\(self.piece.likeCnt) Likes"
+        self.commentCntLabel.text = "\(self.piece.commentCnt) Comments"
+        var like:String
+        if self.piece.isLike == 1 {
+            like = "liked"
+        } else {
+            like = "like"
+        }
+        self.likeIconImgView.image = UIImage(named: like)
+    }
+    
     func showImage() {
         if self.piece.user != nil && self.piece.user?.userAvatarUrl != nil {
             self.userAvatarImgView.kf_setImageWithURL(NSURL(string: (self.piece.user?.userAvatarThumbUrl)!)!)
         } else {
             self.userAvatarImgView.image = nil
         }
+        var like:String
+        if self.piece.isLike == 1 {
+            like = "liked"
+        } else {
+            like = "like"
+        }
+        self.likeIconImgView.image = UIImage(named: like)
+
         if self.piece.piecePicUrl != nil {
             self.piecePicImgView.backgroundColor = UIColor.blackColor()
             self.piecePicImgView.kf_setImageWithURL(NSURL(string: (self.piece.piecePicUrl)!)!)
@@ -59,8 +80,9 @@ class PieceDetailCell: UITableViewCell {
     }
     
     @IBAction func like(sender: AnyObject) {
-        PieceApi.sharedInstance.like(self.piece.pieceId, status: 1) { () -> Void in
-            
+        let like = self.piece.changeLike()
+        PieceApi.sharedInstance.like(self.piece.pieceId, status: like) { () -> Void in
+            self.updateContent()
         }
     }
     
@@ -245,7 +267,7 @@ class PieceDetailCell: UITableViewCell {
                         make.center.equalTo(view.snp_center)
                     })
 
-                    var icon: UIImageView = {
+                    self.likeIconImgView = {
                         let imageView = UIImageView()
 
                         button.addSubview(imageView)

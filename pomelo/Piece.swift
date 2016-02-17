@@ -17,13 +17,14 @@ class Piece: NSObject {
     var pieceTime:NSDate = NSDate(timeIntervalSince1970: 1)
     var likeCnt:Int = 0
     var commentCnt:Int = 0
+    var isLike:Int = 0
     var user:User?
     var channel:Channel?
     
     var piecePicUrl:String?
     var piecePicThumbUrl:String?
     
-    init(pieceId: Int, pieceText: String, pieceTime: NSDate, piecePic: String?, likeCnt: Int, commentCnt: Int, user: User?, channel: Channel?) {
+    init(pieceId: Int, pieceText: String, pieceTime: NSDate, piecePic: String?, likeCnt: Int, commentCnt: Int, isLike: Int, user: User?, channel: Channel?) {
         super.init()
         
         self.pieceId = pieceId
@@ -32,6 +33,8 @@ class Piece: NSObject {
         self.piecePic = piecePic
         self.likeCnt = likeCnt
         self.commentCnt = commentCnt
+        self.isLike = isLike
+        
         self.user = user
         self.channel = channel
         
@@ -45,6 +48,21 @@ class Piece: NSObject {
         } else {
             piecePicUrl = "https://zhouqi.work/pomelo/piece/\(piecePic!)"
             piecePicThumbUrl = "https://zhouqi.work/pomelo/piece/thumb/\(piecePic!)"
+        }
+    }
+    
+    func changeLike() -> Int {
+        if isLike == 1 {
+            isLike = -1
+            likeCnt -= 1
+            if likeCnt < 0 {
+                likeCnt = 0
+            }
+            return -1
+        } else {
+            isLike = 1
+            likeCnt += 1
+            return 1
         }
     }
 }
