@@ -112,8 +112,7 @@ class AddPieceView: UIView, YYTextViewDelegate, UIImagePickerControllerDelegate,
                 }
             }
         }
-        self.textView.text = nil
-        self.endEditing(true)
+        self.clear()
     }
     
     @IBAction func selectImage(sender: AnyObject) {
@@ -147,6 +146,12 @@ class AddPieceView: UIView, YYTextViewDelegate, UIImagePickerControllerDelegate,
     
     func textViewDidChange(textView: YYTextView!) {
         self.button.enabled = textView.text != nil && textView.text.characters.count > 0
+    }
+    
+    func clear() {
+        self.textView.text = nil
+        self.imageData = nil
+        self.endEditing(true)
     }
 }
 

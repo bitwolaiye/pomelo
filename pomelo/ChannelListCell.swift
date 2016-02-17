@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import SnapKit
-import Toast_Swift
 
 class ChannelListCell: UITableViewCell {
     @IBOutlet weak var channelNameLabel:UILabel!
